@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interviews — Dr. Eiman Al-Shammari</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<style>
+.interviews-intro {
+  max-width: 580px; font-size: 20px; font-style: italic;
+  opacity: 0.6; margin-bottom: 70px; line-height: 1.7;
+}
+.interview-item {
+  display: grid; grid-template-columns: 140px 1fr;
+  gap: 48px; padding: 48px 0;
+  border-bottom: 1px solid rgba(184,146,42,0.18);
+  align-items: start;
+  transition: background 0.3s;
+  margin: 0 -20px; padding-left: 20px; padding-right: 20px;
+}
+.interview-item:hover { background: rgba(184,146,42,0.04); }
+.interview-meta {
+  text-align: right; padding-top: 4px;
+}
+.interview-date {
+  font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.15em;
+  color: var(--gold); display: block; margin-bottom: 6px;
+}
+.interview-medium {
+  font-size: 13px; font-style: italic; opacity: 0.45;
+}
+.interview-title { font-size: 24px; font-weight: 400; margin-bottom: 12px; line-height: 1.3; }
+.interview-outlet {
+  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.2em;
+  color: var(--rust); margin-bottom: 12px;
+}
+.interview-excerpt { font-size: 17px; line-height: 1.8; opacity: 0.6; margin-bottom: 20px; }
+.interview-link {
+  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.2em;
+  color: var(--gold); text-decoration: none;
+  border-bottom: 1px solid var(--gold-pale); padding-bottom: 2px;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: gap 0.3s, border-color 0.3s;
+}
+.interview-link:hover { gap: 12px; border-color: var(--gold); }
+
+.coming-soon {
+  text-align: center; padding: 100px 40px;
+  border: 1px dashed rgba(184,146,42,0.25); background: rgba(184,146,42,0.03);
+}
+.coming-soon .big { font-size: 64px; margin-bottom: 24px; opacity: 0.3; }
+.coming-soon h3 {
+  font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 0.3em;
+  color: var(--gold); margin-bottom: 16px;
+}
+.coming-soon p { font-size: 18px; font-style: italic; opacity: 0.5; max-width: 400px; margin: 0 auto; }
+
+@media (max-width: 768px) {
+  .interview-item { grid-template-columns: 1fr; gap: 8px; }
+  .interview-meta { text-align: left; }
+}
+</style>
+</head>
+<body>
+<div class="page-border"></div>
+<nav>
+  <a href="index.html" class="nav-logo">Dr. Eiman</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="books.html">Books</a></li>
+    <li><a href="blog.html">Poetry</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="interviews.html" class="active">Interviews</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-eyebrow">In Conversation</div>
+  <h1 class="page-title">Interviews &<br><em>Media</em></h1>
+</div>
+
+<div class="content">
+  <p class="interviews-intro">Conversations on poetry, research, Gulf heritage, and the space between scholarship and literary art.</p>
+
+  <!-- Add your interviews here. Example format below. -->
+  <!-- Uncomment and fill in when you have interviews to add:
+
+  <div class="interview-item reveal">
+    <div class="interview-meta">
+      <span class="interview-date">2024</span>
+      <span class="interview-medium">Print / Online</span>
+    </div>
+    <div>
+      <div class="interview-title">Interview title here</div>
+      <div class="interview-outlet">Publication / Channel Name</div>
+      <div class="interview-excerpt">A short excerpt or description of what the interview covered...</div>
+      <a href="LINK_HERE" target="_blank" class="interview-link">Read Interview →</a>
+    </div>
+  </div>
+
+  -->
+
+  <div class="coming-soon">
+    <div class="big">🎙</div>
+    <h3>COMING SOON</h3>
+    <p>Interviews and media appearances will be listed here. Send links to add them.</p>
+  </div>
+
+</div>
+
+<div class="divider">✦ ✦ ✦</div>
+<footer>
+  <span>Dr. Eiman Al-Shammari</span>
+  <span>Interviews & Media</span>
+  <span>© 2025</span>
+</footer>
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100);obs.unobserve(e.target);}});},{threshold:0.1});
+reveals.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

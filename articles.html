@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Articles — Dr. Eiman Al-Shammari</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<style>
+.article-item {
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(184,146,42,0.18);
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 40px;
+  align-items: start;
+  transition: background 0.3s;
+  margin: 0 -20px; padding-left: 20px; padding-right: 20px;
+}
+.article-item:hover { background: rgba(184,146,42,0.04); }
+.art-year {
+  font-family: 'Cinzel', serif; font-size: 11px;
+  letter-spacing: 0.1em; color: var(--gold);
+  padding-top: 6px;
+}
+.art-body {}
+.art-title { font-size: 22px; font-weight: 400; margin-bottom: 10px; line-height: 1.3; }
+.art-venue { font-size: 14px; font-style: italic; color: var(--rust); margin-bottom: 10px; }
+.art-abstract { font-size: 16px; line-height: 1.7; opacity: 0.6; margin-bottom: 16px; }
+.art-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.art-tag {
+  font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.15em;
+  padding: 5px 12px; border: 1px solid var(--gold-pale); color: var(--gold);
+}
+.art-link {
+  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.2em;
+  color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  border-bottom: 1px solid var(--gold-pale); padding-bottom: 2px; margin-top: 12px;
+  transition: gap 0.3s, border-color 0.3s;
+}
+.art-link:hover { gap: 12px; border-color: var(--gold); }
+
+.placeholder-banner {
+  background: rgba(184,146,42,0.06);
+  border: 1px dashed var(--gold-pale);
+  padding: 40px; text-align: center;
+  margin-bottom: 60px; border-radius: 2px;
+}
+.placeholder-banner p { font-style: italic; opacity: 0.5; margin-bottom: 12px; }
+.placeholder-banner strong { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.2em; color: var(--gold); }
+
+@media (max-width: 768px) {
+  .article-item { grid-template-columns: 1fr; gap: 4px; }
+}
+</style>
+</head>
+<body>
+<div class="page-border"></div>
+<nav>
+  <a href="index.html" class="nav-logo">Dr. Eiman</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="articles.html" class="active">Articles</a></li>
+    <li><a href="books.html">Books</a></li>
+    <li><a href="blog.html">Poetry</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="interviews.html">Interviews</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-eyebrow">Academic Work</div>
+  <h1 class="page-title">Articles &<br><em>Publications</em></h1>
+</div>
+
+<div class="content">
+
+  <div class="placeholder-banner">
+    <p>Add your article links, DOIs, and abstracts to this page to share your academic work.</p>
+    <strong>Contact me to update this section</strong>
+  </div>
+
+  <div class="article-item reveal">
+    <div class="art-year">2025</div>
+    <div class="art-body">
+      <div class="art-title">Archiving the Erased: Digital Counter-Memory and the Survival of Islamic Visibility in Contemporary China</div>
+      <div class="art-venue">Academic manuscript — under revision</div>
+      <div class="art-abstract">Drawing on digital counter-memory theory and fieldwork documentation, this article examines how Chinese Muslim communities negotiate cultural erasure through digital archiving practices.</div>
+      <div class="art-tags">
+        <span class="art-tag">Islamic Studies</span>
+        <span class="art-tag">China</span>
+        <span class="art-tag">Digital Memory</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-item reveal">
+    <div class="art-year">2025</div>
+    <div class="art-body">
+      <div class="art-title">PMT-X-Smart: Agent-Based Simulation of Anti-Phishing Behavior in Smart City Contexts</div>
+      <div class="art-venue">Submitted — IEEE COMPSAC 2026</div>
+      <div class="art-abstract">An extension of Protection Motivation Theory incorporating agent-based modeling to simulate cybersecurity behavioral responses in smart city environments.</div>
+      <div class="art-tags">
+        <span class="art-tag">Cybersecurity</span>
+        <span class="art-tag">Agent-Based Modeling</span>
+        <span class="art-tag">PMT</span>
+        <span class="art-tag">Smart Cities</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-item reveal">
+    <div class="art-year">2025</div>
+    <div class="art-body">
+      <div class="art-title">Islam–Confucian Synthesis in Chinese Islamic Thought, 2015–2025</div>
+      <div class="art-venue">Academic manuscript</div>
+      <div class="art-abstract">A decade-spanning analysis of the convergence between Islamic and Confucian philosophical frameworks in contemporary Chinese Muslim intellectual discourse.</div>
+      <div class="art-tags">
+        <span class="art-tag">Islamic Studies</span>
+        <span class="art-tag">Confucianism</span>
+        <span class="art-tag">China</span>
+        <span class="art-tag">Han Kitab</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-item reveal">
+    <div class="art-year">—</div>
+    <div class="art-body">
+      <div class="art-title">Additional peer-reviewed publications with Springer &amp; Taylor &amp; Francis</div>
+      <div class="art-venue">International peer-reviewed journals</div>
+      <div class="art-abstract">Research spanning Arabic NLP, social network analysis, computational intelligence, e-government, and bioinformatics.</div>
+      <div class="art-tags">
+        <span class="art-tag">Springer</span>
+        <span class="art-tag">Taylor &amp; Francis</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="divider">✦ ✦ ✦</div>
+<footer>
+  <span>Dr. Eiman Al-Shammari</span>
+  <span>Articles & Publications</span>
+  <span>© 2025</span>
+</footer>
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*100); obs.unobserve(e.target); } });
+},{threshold:0.1});
+reveals.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

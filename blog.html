@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poetry — Dr. Eiman Al-Shammari</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+/* ── BLOG SPECIFIC ── */
+.blog-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.filter-tabs {
+  display: flex;
+  gap: 4px;
+}
+.filter-tab {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  padding: 10px 20px;
+  border: 1px solid var(--gold-pale);
+  background: transparent;
+  color: var(--ink);
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.filter-tab.active, .filter-tab:hover {
+  background: var(--gold);
+  color: white;
+  opacity: 1;
+  border-color: var(--gold);
+}
+
+.add-poem-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  padding: 12px 28px;
+  background: var(--ink);
+  color: var(--parchment);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.add-poem-btn:hover { background: var(--rust); }
+
+/* ── POEM GRID ── */
+.poems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2px;
+}
+
+.poem-card {
+  background: white;
+  padding: 48px 40px;
+  border: 1px solid rgba(184,146,42,0.12);
+  transition: all 0.4s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.poem-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--rust));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+.poem-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px var(--shadow); }
+.poem-card:hover::after { transform: scaleX(1); }
+
+.poem-lang {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 16px;
+  opacity: 0.8;
+}
+.poem-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.poem-title.arabic {
+  font-family: 'Noto Naskh Arabic', serif;
+  direction: rtl;
+  text-align: right;
+  font-size: 28px;
+}
+.poem-excerpt {
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--ink);
+  opacity: 0.7;
+  font-style: italic;
+}
+.poem-excerpt.arabic {
+  font-family: 'Noto Naskh Arabic', serif;
+  direction: rtl;
+  text-align: right;
+  font-style: normal;
+  font-size: 19px;
+  line-height: 2;
+}
+.poem-meta {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gold-pale);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--ink);
+  opacity: 0.4;
+}
+.poem-read-more {
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+}
+
+/* ── MODAL (full poem view) ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,18,9,0.85);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+  backdrop-filter: blur(8px);
+}
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.modal-box {
+  background: var(--cream);
+  max-width: 680px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 60px;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.4s;
+  border: 1px solid var(--gold-pale);
+}
+.modal-overlay.open .modal-box { transform: translateY(0); }
+.modal-close {
+  position: absolute;
+  top: 24px; right: 28px;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink);
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+.modal-close:hover { opacity: 1; }
+.modal-poem-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 300;
+  margin-bottom: 36px;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.modal-poem-title.arabic {
+  font-family: 'Noto Naskh Arabic', serif;
+  direction: rtl;
+  text-align: right;
+}
+.modal-poem-body {
+  font-size: 21px;
+  line-height: 2.1;
+  color: var(--ink);
+  opacity: 0.85;
+  font-style: italic;
+  white-space: pre-line;
+}
+.modal-poem-body.arabic {
+  font-family: 'Noto Naskh Arabic', serif;
+  direction: rtl;
+  text-align: right;
+  font-style: normal;
+  font-size: 23px;
+  line-height: 2.2;
+}
+.modal-poem-note {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid var(--gold-pale);
+  font-size: 15px;
+  font-style: italic;
+  opacity: 0.5;
+}
+
+/* ── ADD POEM FORM ── */
+.form-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,18,9,0.85);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+  backdrop-filter: blur(8px);
+}
+.form-overlay.open { opacity: 1; pointer-events: all; }
+
+.form-box {
+  background: var(--ink);
+  color: var(--parchment);
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 60px;
+  position: relative;
+  border: 1px solid rgba(184,146,42,0.3);
+  transform: translateY(20px);
+  transition: transform 0.4s;
+}
+.form-overlay.open .form-box { transform: translateY(0); }
+
+.form-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 300;
+  margin-bottom: 40px;
+  color: var(--gold-light);
+}
+.form-group {
+  margin-bottom: 28px;
+}
+.form-label {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 10px;
+}
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(184,146,42,0.3);
+  color: var(--parchment);
+  padding: 14px 18px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  transition: border-color 0.3s;
+  resize: none;
+  outline: none;
+}
+.form-input:focus, .form-textarea:focus { border-color: var(--gold); }
+.form-textarea { min-height: 200px; line-height: 1.8; }
+.form-textarea.rtl { direction: rtl; text-align: right; font-family: 'Noto Naskh Arabic', serif; font-size: 20px; }
+.form-select { cursor: pointer; }
+.form-select option { background: var(--ink); }
+.form-hint {
+  font-size: 13px;
+  opacity: 0.4;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.btn-submit {
+  width: 100%;
+  padding: 18px;
+  background: var(--gold);
+  color: var(--ink);
+  border: none;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 12px;
+}
+.btn-submit:hover { background: var(--gold-light); }
+
+.form-close {
+  position: absolute;
+  top: 24px; right: 28px;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--parchment);
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+.form-close:hover { opacity: 1; }
+
+.empty-state {
+  text-align: center;
+  padding: 80px 40px;
+  opacity: 0.4;
+}
+.empty-state .big { font-size: 60px; margin-bottom: 20px; }
+.empty-state p { font-style: italic; font-size: 20px; }
+
+@media (max-width: 768px) {
+  .poems-grid { grid-template-columns: 1fr; }
+  .modal-box, .form-box { padding: 32px 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .blog-controls { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-border"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Dr. Eiman</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="books.html">Books</a></li>
+    <li><a href="blog.html" class="active">Poetry</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="interviews.html">Interviews</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-eyebrow">المدوّنة الشعرية</div>
+  <h1 class="page-title">Poetry <em>Blog</em></h1>
+</div>
+
+<div class="content">
+  <div class="blog-controls">
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="filterPoems('all')">All</button>
+      <button class="filter-tab" onclick="filterPoems('arabic')">عربي</button>
+      <button class="filter-tab" onclick="filterPoems('english')">English</button>
+      <button class="filter-tab" onclick="filterPoems('bilingual')">Bilingual</button>
+    </div>
+    <button class="add-poem-btn" onclick="openForm()">+ Add New Poem</button>
+  </div>
+
+  <div class="poems-grid" id="poemsGrid"></div>
+</div>
+
+<div class="divider">✦ ✦ ✦</div>
+
+<footer>
+  <span>Dr. Eiman Al-Shammari</span>
+  <span>Poetry Blog</span>
+  <span>© 2025</span>
+</footer>
+
+<!-- POEM VIEW MODAL -->
+<div class="modal-overlay" id="poemModal" onclick="closeModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModalDirect()">✕ CLOSE</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- ADD POEM FORM -->
+<div class="form-overlay" id="formOverlay" onclick="closeFormOverlay(event)">
+  <div class="form-box">
+    <button class="form-close" onclick="closeForm()">✕ CLOSE</button>
+    <div class="form-title">Add a New Poem</div>
+
+    <div class="form-group">
+      <label class="form-label">Poem Title</label>
+      <input type="text" class="form-input" id="poemTitle" placeholder="Enter title...">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Language</label>
+        <select class="form-select form-input" id="poemLang" onchange="toggleArabicInput()">
+          <option value="arabic">Arabic — عربي</option>
+          <option value="english">English</option>
+          <option value="bilingual">Bilingual</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Date / Year</label>
+        <input type="text" class="form-input" id="poemDate" placeholder="e.g. 2024 or Spring 2025">
+      </div>
+    </div>
+
+    <div class="form-group" id="arabicGroup">
+      <label class="form-label">Poem Text — Arabic</label>
+      <textarea class="form-textarea rtl" id="poemTextAr" placeholder="اكتبي قصيدتك هنا...&#10;كل سطر على حدة"></textarea>
+      <div class="form-hint">Press Enter for each new line</div>
+    </div>
+
+    <div class="form-group" id="englishGroup" style="display:none">
+      <label class="form-label">Poem Text — English</label>
+      <textarea class="form-textarea" id="poemTextEn" placeholder="Write your poem here...&#10;One line per line"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Note / Context (optional)</label>
+      <input type="text" class="form-input" id="poemNote" placeholder="e.g. Published in Al-Jarida, 2023">
+    </div>
+
+    <button class="btn-submit" onclick="savePoem()">PUBLISH POEM</button>
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// POEMS DATABASE — stored in localStorage
+// ─────────────────────────────────────────────
+const STORAGE_KEY = 'eiman_poems_v1';
+
+const defaultPoems = [
+  {
+    id: 1,
+    title: 'قبلة الأحرار',
+    lang: 'arabic',
+    textAr: 'قبلةُ الأحرار\nتُحرقُ الجِلدَ نوراً،\nوتَبقى على الروحِ\nوَشْماً من ضوء.',
+    textEn: '',
+    note: '',
+    date: '2024'
+  },
+  {
+    id: 2,
+    title: 'بين البحر والصحراء',
+    lang: 'arabic',
+    textAr: 'بين البحرِ والصحراءِ\nوُلِدتُ،\nوبين الحرفِ والموجِ\nعِشتُ.\nلا أنتمي إلى مكانٍ\nبل إلى اللغة.',
+    textEn: '',
+    note: 'On Gulf identity',
+    date: '2023'
+  }
+];
+
+function loadPoems() {
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if (stored) return JSON.parse(stored);
+  // First time: save defaults
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultPoems));
+  return defaultPoems;
+}
+
+function savePoems(poems) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(poems));
+}
+
+let allPoems = loadPoems();
+let activeFilter = 'all';
+
+// ─────────────────────────────────────────────
+// RENDER
+// ─────────────────────────────────────────────
+function renderPoems() {
+  const grid = document.getElementById('poemsGrid');
+  const filtered = activeFilter === 'all'
+    ? allPoems
+    : allPoems.filter(p => p.lang === activeFilter);
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
+      <div class="big">✦</div>
+      <p>No poems here yet. Add your first poem above.</p>
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map((poem, i) => {
+    const isAr = poem.lang === 'arabic' || poem.lang === 'bilingual';
+    const title = isAr ? poem.title : poem.title;
+    const excerpt = poem.lang === 'english'
+      ? (poem.textEn || '').split('\n').slice(0,3).join('\n')
+      : (poem.textAr || '').split('\n').slice(0,3).join('\n');
+    const langLabel = poem.lang === 'arabic' ? 'ARABIC · عربي'
+      : poem.lang === 'english' ? 'ENGLISH'
+      : 'BILINGUAL · ثنائي';
+
+    return `<div class="poem-card reveal" onclick="openPoem(${poem.id})" style="animation-delay:${i*80}ms">
+      <div class="poem-lang">${langLabel}</div>
+      <div class="poem-title ${isAr ? 'arabic' : ''}">${title}</div>
+      <div class="poem-excerpt ${poem.lang !== 'english' ? 'arabic' : ''}">${excerpt}</div>
+      <div class="poem-meta">
+        <span>${poem.date || ''}</span>
+        <span class="poem-read-more">READ MORE →</span>
+      </div>
+    </div>`;
+  }).join('');
+
+  // trigger reveals
+  setTimeout(() => {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }, 50);
+}
+
+// ─────────────────────────────────────────────
+// FILTER
+// ─────────────────────────────────────────────
+function filterPoems(lang) {
+  activeFilter = lang;
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  renderPoems();
+}
+
+// ─────────────────────────────────────────────
+// VIEW POEM MODAL
+// ─────────────────────────────────────────────
+function openPoem(id) {
+  const poem = allPoems.find(p => p.id === id);
+  if (!poem) return;
+  const isAr = poem.lang !== 'english';
+
+  let html = `<div class="modal-poem-title ${isAr ? 'arabic' : ''}">${poem.title}</div>`;
+
+  if (poem.textAr) {
+    html += `<div class="modal-poem-body arabic">${poem.textAr}</div>`;
+  }
+  if (poem.textEn) {
+    html += `<div class="modal-poem-body" style="margin-top:32px">${poem.textEn}</div>`;
+  }
+  if (poem.note) {
+    html += `<div class="modal-poem-note">${poem.note}</div>`;
+  }
+
+  document.getElementById('modalContent').innerHTML = html;
+  document.getElementById('poemModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('poemModal')) closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('poemModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ─────────────────────────────────────────────
+// ADD POEM FORM
+// ─────────────────────────────────────────────
+function openForm() {
+  document.getElementById('formOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeForm() {
+  document.getElementById('formOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeFormOverlay(e) {
+  if (e.target === document.getElementById('formOverlay')) closeForm();
+}
+
+function toggleArabicInput() {
+  const lang = document.getElementById('poemLang').value;
+  document.getElementById('arabicGroup').style.display =
+    (lang === 'arabic' || lang === 'bilingual') ? 'block' : 'none';
+  document.getElementById('englishGroup').style.display =
+    (lang === 'english' || lang === 'bilingual') ? 'block' : 'none';
+}
+
+function savePoem() {
+  const title = document.getElementById('poemTitle').value.trim();
+  const lang   = document.getElementById('poemLang').value;
+  const date   = document.getElementById('poemDate').value.trim();
+  const textAr = document.getElementById('poemTextAr').value.trim();
+  const textEn = document.getElementById('poemTextEn').value.trim();
+  const note   = document.getElementById('poemNote').value.trim();
+
+  if (!title) { alert('Please enter a title.'); return; }
+  if (!textAr && !textEn) { alert('Please enter the poem text.'); return; }
+
+  const newPoem = {
+    id: Date.now(),
+    title, lang, date, textAr, textEn, note
+  };
+
+  allPoems.unshift(newPoem);
+  savePoems(allPoems);
+
+  // reset form
+  document.getElementById('poemTitle').value = '';
+  document.getElementById('poemDate').value = '';
+  document.getElementById('poemTextAr').value = '';
+  document.getElementById('poemTextEn').value = '';
+  document.getElementById('poemNote').value = '';
+
+  closeForm();
+  activeFilter = 'all';
+  document.querySelectorAll('.filter-tab').forEach((t,i) => t.classList.toggle('active', i===0));
+  renderPoems();
+}
+
+// ─────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────
+renderPoems();
+</script>
+</body>
+</html>
