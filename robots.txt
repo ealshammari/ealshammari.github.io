@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ealshammari.github.io/sitemap.xml
