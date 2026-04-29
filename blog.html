@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Poetry — Dr. Eiman Al-Shammari</title>
+<title>الشعر — د. إيمان الشمري</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Lato:wght@300;400;700&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -17,28 +17,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .nav-links{list-style:none;display:flex;gap:32px;align-items:center;}
 .nav-links a{font-family:'Lato',sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#666;text-decoration:none;transition:color .2s;}
 .nav-links a:hover,.nav-links a.active{color:#1c1c1c;}
-.nav-cta{background:#1c1c1c!important;color:#fff!important;padding:10px 22px!important;transition:background .2s!important;}
+.nav-cta{background:#1c1c1c!important;color:#fff!important;padding:10px 22px!important;}
 .nav-cta:hover{background:#c0392b!important;}
 
-/* PAGE HEADER */
-.page-header{padding:130px 60px 60px;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;}
-.header-left{}
+/* HEADER */
+.page-header{padding:130px 60px 60px;max-width:1200px;margin:0 auto;}
 .page-eyebrow{font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:#c0392b;margin-bottom:14px;font-weight:400;}
 .page-title{font-family:'Playfair Display',serif;font-size:clamp(48px,7vw,88px);font-weight:400;line-height:1.0;color:#1c1c1c;}
 .page-title em{font-style:italic;color:#c0392b;}
 .page-subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:#999;margin-top:12px;}
 
-/* ADD BUTTON */
-.add-poem-btn{display:inline-flex;align-items:center;gap:10px;background:#1c1c1c;color:#fff;padding:14px 28px;font-family:'Lato',sans-serif;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s;white-space:nowrap;}
-.add-poem-btn:hover{background:#c0392b;}
-
-/* FILTERS */
-.filters-bar{max-width:1200px;margin:0 auto;padding:0 60px 48px;display:flex;gap:0;}
+/* FILTER TABS */
+.filters-bar{max-width:1200px;margin:0 auto;padding:0 60px 48px;display:flex;gap:0;flex-wrap:wrap;}
 .filter-btn{font-family:'Lato',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;padding:10px 22px;border:1px solid #ddd;background:none;color:#888;cursor:pointer;transition:all .2s;margin-right:-1px;}
 .filter-btn:hover{border-color:#1c1c1c;color:#1c1c1c;z-index:1;position:relative;}
 .filter-btn.active{background:#1c1c1c;color:#fff;border-color:#1c1c1c;z-index:1;position:relative;}
 
-/* DIVIDER */
 hr.divider{border:none;border-top:1px solid #efefef;margin:0 60px;}
 
 /* POEMS GRID */
@@ -50,74 +44,39 @@ hr.divider{border:none;border-top:1px solid #efefef;margin:0 60px;}
 .poem-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#c0392b;transform:scaleX(0);transform-origin:left;transition:transform .35s;}
 .poem-card:hover{box-shadow:0 12px 40px rgba(0,0,0,0.08);transform:translateY(-3px);}
 .poem-card:hover::before{transform:scaleX(1);}
-.card-lang{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:#c0392b;margin-bottom:16px;font-weight:400;}
-.card-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:400;line-height:1.2;color:#1c1c1c;margin-bottom:18px;}
-.card-title.ar{font-family:'Noto Naskh Arabic',serif;direction:rtl;text-align:right;font-size:26px;}
-.card-excerpt{font-size:16px;line-height:1.9;color:#777;font-style:italic;}
-.card-excerpt.ar{font-family:'Noto Naskh Arabic',serif;direction:rtl;text-align:right;font-style:normal;font-size:18px;line-height:2;}
-.card-footer{margin-top:28px;padding-top:20px;border-top:1px solid #f5f5f5;display:flex;justify-content:space-between;align-items:center;}
-.card-date{font-size:12px;color:#bbb;letter-spacing:0.08em;}
+.card-tag{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:#c0392b;margin-bottom:16px;font-weight:400;}
+.card-title{font-family:'Noto Naskh Arabic',serif;font-size:26px;font-weight:600;direction:rtl;text-align:right;color:#1c1c1c;margin-bottom:18px;line-height:1.3;}
+.card-excerpt{font-family:'Noto Naskh Arabic',serif;font-size:17px;line-height:2;direction:rtl;text-align:right;color:#777;}
+.card-footer{margin-top:24px;padding-top:18px;border-top:1px solid #f5f5f5;display:flex;justify-content:flex-end;}
 .card-read{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#c0392b;}
 
-/* EMPTY STATE */
-.empty-state{grid-column:1/-1;text-align:center;padding:100px 40px;}
-.empty-icon{font-size:56px;margin-bottom:28px;opacity:0.2;}
-.empty-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:400;color:#1c1c1c;margin-bottom:12px;}
-.empty-text{font-size:17px;font-style:italic;color:#aaa;margin-bottom:36px;}
-
-/* POEM MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:1000;display:flex;align-items:center;justify-content:center;padding:40px;opacity:0;pointer-events:none;transition:opacity .35s;backdrop-filter:blur(6px);}
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.72);z-index:1000;display:flex;align-items:center;justify-content:center;padding:40px;opacity:0;pointer-events:none;transition:opacity .35s;backdrop-filter:blur(6px);}
 .modal-overlay.open{opacity:1;pointer-events:all;}
-.modal-box{background:#fff;max-width:680px;width:100%;max-height:85vh;overflow-y:auto;padding:64px;position:relative;transform:translateY(16px);transition:transform .35s;}
+.modal-box{background:#fff;max-width:700px;width:100%;max-height:88vh;overflow-y:auto;padding:64px;position:relative;transform:translateY(16px);transition:transform .35s;}
 .modal-overlay.open .modal-box{transform:translateY(0);}
 .modal-close{position:absolute;top:24px;right:28px;font-family:'Lato',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;background:none;border:none;cursor:pointer;color:#aaa;transition:color .2s;}
 .modal-close:hover{color:#1c1c1c;}
-.modal-title{font-family:'Playfair Display',serif;font-size:38px;font-weight:400;line-height:1.1;color:#1c1c1c;margin-bottom:36px;}
-.modal-title.ar{font-family:'Noto Naskh Arabic',serif;direction:rtl;text-align:right;}
-.modal-body{font-size:21px;line-height:2.2;font-style:italic;color:#333;white-space:pre-line;}
-.modal-body.ar{font-family:'Noto Naskh Arabic',serif;direction:rtl;text-align:right;font-style:normal;font-size:23px;}
-.modal-note{margin-top:36px;padding-top:24px;border-top:1px solid #f0f0f0;font-size:14px;font-style:italic;color:#bbb;}
-.modal-delete{position:absolute;bottom:24px;right:28px;font-family:'Lato',sans-serif;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;background:none;border:1px solid #eee;color:#ccc;padding:8px 16px;cursor:pointer;transition:all .2s;}
-.modal-delete:hover{border-color:#c0392b;color:#c0392b;}
+.modal-title{font-family:'Noto Naskh Arabic',serif;font-size:36px;font-weight:600;direction:rtl;text-align:right;color:#1c1c1c;margin-bottom:12px;line-height:1.2;}
+.modal-divider{width:50px;height:3px;background:#c0392b;margin:0 0 32px auto;}
+.modal-body{font-family:'Noto Naskh Arabic',serif;font-size:22px;line-height:2.3;direction:rtl;text-align:right;color:#333;white-space:pre-line;}
 
-/* ADD POEM FORM */
-.form-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:1001;display:flex;align-items:center;justify-content:center;padding:40px;opacity:0;pointer-events:none;transition:opacity .35s;backdrop-filter:blur(6px);}
-.form-overlay.open{opacity:1;pointer-events:all;}
-.form-box{background:#1c1c1c;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;padding:60px;position:relative;transform:translateY(16px);transition:transform .35s;border-top:3px solid #c0392b;}
-.form-overlay.open .form-box{transform:translateY(0);}
-.form-close{position:absolute;top:24px;right:28px;font-family:'Lato',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;background:none;border:none;cursor:pointer;color:#666;transition:color .2s;}
-.form-close:hover{color:#fff;}
-.form-title{font-family:'Playfair Display',serif;font-size:34px;font-weight:400;color:#fff;margin-bottom:40px;}
-.form-title em{font-style:italic;color:#c0392b;}
-.form-group{margin-bottom:28px;}
-.form-label{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:#c0392b;display:block;margin-bottom:10px;font-weight:400;}
-.form-input,.form-select,.form-textarea{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:#fff;padding:14px 18px;font-family:'Lato',sans-serif;font-size:16px;outline:none;transition:border-color .2s;resize:none;}
-.form-input:focus,.form-textarea:focus{border-color:#c0392b;}
-.form-input::placeholder,.form-textarea::placeholder{color:#555;}
-.form-textarea{min-height:200px;line-height:1.9;}
-.form-textarea.rtl{direction:rtl;text-align:right;font-family:'Noto Naskh Arabic',serif;font-size:20px;}
-.form-select{cursor:pointer;}
-.form-select option{background:#1c1c1c;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.form-hint{font-size:13px;color:#555;margin-top:6px;font-style:italic;}
-.btn-submit{width:100%;padding:18px;background:#c0392b;color:#fff;border:none;font-family:'Lato',sans-serif;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-top:8px;}
-.btn-submit:hover{background:#a93226;}
-
+/* FOOTER */
 footer{background:#1c1c1c;color:#777;padding:28px 60px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:0.05em;}
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+/* ANIMATIONS */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
+/* MOBILE */
 @media(max-width:900px){
   nav{padding:0 20px;} .nav-links{display:none;}
-  .page-header{padding:110px 24px 40px;flex-direction:column;align-items:flex-start;}
+  .page-header{padding:110px 24px 40px;}
   .filters-bar{padding:0 24px 36px;}
   hr.divider{margin:0 24px;}
   .poems-wrap{padding:36px 24px 80px;}
   .poems-grid{grid-template-columns:1fr;}
-  .modal-box,.form-box{padding:36px 24px;}
-  .form-row{grid-template-columns:1fr;}
+  .modal-box{padding:36px 24px;}
   footer{flex-direction:column;gap:8px;text-align:center;padding:24px;}
 }
 </style>
@@ -138,219 +97,306 @@ footer{background:#1c1c1c;color:#777;padding:28px 60px;display:flex;justify-cont
 </nav>
 
 <div class="page-header">
-  <div class="header-left">
-    <div class="page-eyebrow">المدوّنة الشعرية</div>
-    <h1 class="page-title">Poetry <em>Blog</em></h1>
-    <div class="page-subtitle">Verses in Arabic & English</div>
-  </div>
-  <button class="add-poem-btn" onclick="openForm()">+ Add New Poem</button>
+  <div class="page-eyebrow">المدوّنة الشعرية</div>
+  <h1 class="page-title">Poetry <em>Blog</em></h1>
+  <div class="page-subtitle">قصائد د. إيمان الشمري</div>
 </div>
 
 <div class="filters-bar">
-  <button class="filter-btn active" onclick="filterPoems('all', this)">All</button>
-  <button class="filter-btn" onclick="filterPoems('arabic', this)">عربي</button>
-  <button class="filter-btn" onclick="filterPoems('english', this)">English</button>
-  <button class="filter-btn" onclick="filterPoems('bilingual', this)">Bilingual</button>
+  <button class="filter-btn active" onclick="filter('all',this)">الكل — All</button>
+  <button class="filter-btn" onclick="filter('madaeh',this)">المدائح النبوية</button>
+  <button class="filter-btn" onclick="filter('kuwait',this)">الكويت والوطن</button>
+  <button class="filter-btn" onclick="filter('other',this)">أخرى</button>
 </div>
 
 <hr class="divider">
 
 <div class="poems-wrap">
-  <div class="poems-grid" id="poemsGrid"></div>
+  <div class="poems-grid" id="grid"></div>
 </div>
 
 <footer>
-  <span>© 2025 Dr. Eiman Al-Shammari</span>
+  <span>© 2025 د. إيمان الشمري</span>
   <span>Poetry Blog</span>
 </footer>
 
-<!-- POEM MODAL -->
-<div class="modal-overlay" id="poemModal" onclick="closeModalOutside(event)">
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeOutside(event)">
   <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">✕ Close</button>
+    <button class="modal-close" onclick="closeModal()">✕ إغلاق</button>
     <div id="modalContent"></div>
-    <button class="modal-delete" id="deleteBtn" onclick="deleteCurrentPoem()">Delete Poem</button>
-  </div>
-</div>
-
-<!-- ADD POEM FORM -->
-<div class="form-overlay" id="formOverlay" onclick="closeFormOutside(event)">
-  <div class="form-box">
-    <button class="form-close" onclick="closeForm()">✕ Close</button>
-    <div class="form-title">Add a New <em>Poem</em></div>
-
-    <div class="form-group">
-      <label class="form-label">Poem Title / عنوان القصيدة</label>
-      <input type="text" class="form-input" id="poemTitle" placeholder="Enter title...">
-    </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label class="form-label">Language</label>
-        <select class="form-select form-input" id="poemLang" onchange="toggleFields()">
-          <option value="arabic">Arabic — عربي</option>
-          <option value="english">English</option>
-          <option value="bilingual">Bilingual — ثنائي</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Year / السنة</label>
-        <input type="text" class="form-input" id="poemDate" placeholder="e.g. 2024">
-      </div>
-    </div>
-
-    <div class="form-group" id="arabicField">
-      <label class="form-label">Poem Text in Arabic / نص القصيدة</label>
-      <textarea class="form-textarea rtl" id="poemTextAr" placeholder="اكتبي قصيدتك هنا...&#10;كل سطر على حدة"></textarea>
-      <div class="form-hint">اضغطي Enter لكل سطر جديد</div>
-    </div>
-
-    <div class="form-group" id="englishField" style="display:none">
-      <label class="form-label">Poem Text in English</label>
-      <textarea class="form-textarea" id="poemTextEn" placeholder="Write your poem here...&#10;One line per Enter"></textarea>
-    </div>
-
-    <div class="form-group">
-      <label class="form-label">Note / ملاحظة (optional)</label>
-      <input type="text" class="form-input" id="poemNote" placeholder="e.g. Published in Al-Jarida, 2023">
-    </div>
-
-    <button class="btn-submit" onclick="savePoem()">Publish Poem — نشر القصيدة</button>
   </div>
 </div>
 
 <script>
-const KEY = 'eiman_poems_v2';
-let poems = JSON.parse(localStorage.getItem(KEY) || '[]');
-let activeFilter = 'all';
-let currentPoemId = null;
+const poems = [
+  {
+    id: 1,
+    title: 'مدارج الحنين',
+    tag: 'المدائح النبوية',
+    category: 'madaeh',
+    excerpt: 'خُذْنِي إِلَى تِلْكَ المَدِينَةِ حَافِيًا\nأَرْجُو أَمَانًا فِي جِوارِ مُحَمَّدِ',
+    text: `خُذْنِي إِلَى تِلْكَ المَدِينَةِ حَافِيًا
+أَرْجُو أَمَانًا فِي جِوارِ مُحَمَّدِ
+فَإِذَا مَشَيْتُ عَلَى التُّرَابِ سَكِينَةً
+إِذْ صَارَ طُهْرًا مِنْ مَسِيرِ مُحَمَّدِ
+وَالْجِذْعُ أَنَّ مِنَ الْحَنِينِ كَأَنَّهُ
+طِفْلٌ يَتُوقُ لِضَمَّةٍ لِمُحَمَّدِ
+وَالْبَدْرُ شُقَّ لَهُ عَيَانًا فِي السَّمَا
+لَمَّا أَشَارَ لَهُ بَنَانُ مُحَمَّدِ
+صَلَّىٰ عَلَيْكَ اللهُ يَا عَلَمَ الْهُدَىٰ
+مَا هَامَ صَدْرٌ فِي غَرَامِ مُحَمَّدِ
+وَعَلَيْكَ سَلَّمَ رَبُّنَا مَا غَرَّدَتْ
+أَطْيَارُ شَوْقٍ فِي رِحَابِ مُحَمَّدِ`
+  },
+  {
+    id: 2,
+    title: 'صلوات',
+    tag: 'المدائح النبوية',
+    category: 'madaeh',
+    excerpt: 'نَفْسِي الفِدَاءُ لِمَنْ زَانَ الوُجُودُ بِهِ\nوَطَهَّرَ النَّفْسَ أَخْلَاقًا وَأَفْعَالًا',
+    text: `نَفْسِي الفِدَاءُ لِمَنْ زَانَ الوُجُودُ بِهِ
+وَطَهَّرَ النَّفْسَ أَخْلَاقًا وَأَفْعَالًا
+تِلْكَ الصَّبَابَةُ فِي أَعْمَاقِنَا سَكَنَتْ
+تَسْقِي الحَنِينَ وَتُذْكِي الشَّوْقَ جَذَّالًا
+صَلَّى عَلَيْكَ إِلَهُ العَرْشِ مَا بَزَغَتْ
+شَمْسُ النَّهَارِ وَشَعَّ النُّورُ آصَالًا
+صَلَّى عَلَيْكَ إِلَهُ العَرْشِ مَا خَفَقَتْ
+كُلُّ القُلُوبِ بِفَيْضِ الحُبِّ إِجْلَالًا
+ثُمَّ السَّلَامُ عَلَى المَخْتَارِ مَا هَتَفَتْ
+رُوحُ المُحِبِّ تَبُثُّ الوَجْدَ أَرْطَالًا
+وَمَا سَرَى الذِّكْرُ فِي رَوْضِ الهُدَى أَرَجًا
+فَهَزَّ مِنْ طَرَبٍ لِلفوْح أَوْصَالًا`
+  },
+  {
+    id: 3,
+    title: 'صباحية',
+    tag: 'المدائح النبوية',
+    category: 'madaeh',
+    excerpt: 'صباحك سيدي أزهر\nكريح المسك بل أعطر',
+    text: `صباحك سيدي أزهر
+كريح المسك بل أعطر
+وفنجان يراودني
+بطعم الهيل والزعفر
+ووجه بالصفا زاه
+وجنات بها يظفر
+مضى قدما لغايته
+ولكن ربه قدر
+لسان ناطق شكرا
+تلى من سورة الكوثر
+وفجر لو تنفسنا
+لسبح فيه أو كبر
+ورب غافر ذنبا
+لأواب إذا استغفر
+صباح الذكر إذ صلى
+على خير الورى الأطهر
+نبي طاهر زاك
+كوجه البدر بل أنور
+وذكرك سيدي خير
+كغيث الروح إذ أمطر
+إمام الرسل خاتمهم
+جميل الروح والمنظر
+وفي قسماته درس
+وحين النطق كم أبهر
+يقوم الليل رغم الوعد
+بالفردوس والكوثر
+وفي سجداته يدعو
+إلهي أمتي فاغفر
+وكم صدوه بل آذوه
+لم يثنوه أو يضجر
+وحين النصر جاد العفو
+لم يبغي ولم يثأر
+شفيع الناس سيدهم
+ومنقذهم لدى المحشر
+وسلِم قوله سلِم
+مع الترديد كي نعبر
+فصل عليه ملء الأرض
+والأكوان عد الذر
+وسلم رب ما أنعمت
+علي باللقا أظفر
+يفوق المدح والتعظيم
+أنوي الوصف .لاأقدر
+يخون لساني التعبير
+دمعي بالحيا يجهر
+أمانيا لرؤيته
+تساوي العمر أو أكبر
+وأشرب من حياض الطهر
+كأسا طعمها عبقر
+وآخر دعوتي حمد
+لرب العالمين البر`
+  },
+  {
+    id: 4,
+    title: 'إِنّي ذَكَرْتُكَ',
+    tag: 'المدائح النبوية',
+    category: 'madaeh',
+    excerpt: 'إِنّي ذَكَرْتُكَ في جُموعٍ مَرَّةً\nفَاغْرورَقَتْ عَينايَ شَوْقاً وَدُعا',
+    text: `إِنّي ذَكَرْتُكَ في جُموعٍ مَرَّةً
+فَاغْرورَقَتْ عَينايَ شَوْقاً وَدُعا
 
-// ── RENDER ──
-function render() {
-  const grid = document.getElementById('poemsGrid');
-  const list = activeFilter === 'all' ? poems : poems.filter(p => p.lang === activeFilter);
+أَفلا تَمُرُّ تَزورُ قَلبا واهنا..؟
+مُذْ زُرْتَ صَحْبي وَالفُؤادُ تَطَلَّعا
 
-  if (list.length === 0) {
-    grid.innerHTML = `
-      <div class="empty-state">
-        <div class="empty-icon">✦</div>
-        <div class="empty-title">${activeFilter === 'all' ? 'Your poetry awaits' : 'No poems here yet'}</div>
-        <div class="empty-text">Click "Add New Poem" to publish your first verse.</div>
-        <button class="add-poem-btn" onclick="openForm()" style="margin:0 auto;display:inline-flex;">+ Add New Poem</button>
-      </div>`;
-    return;
+تاقَتْ إِلَيْكَ مِنَ الصَّبابَةِ مُهْجَتي
+فَمَتى سَيَهْنا مَنْ بَكى وَتَضَرَّعا؟
+
+فَارْحَمْ نِدائي إِذْ أَتَيْتُكَ حامِلاً
+قَلْباً رَقيقاً في لقاك تَقَطَّعا
+
+وَاغْمُرْ رُؤايَ بِنَفْحَةٍ نَبَوِيَّةٍ
+تَذَرُ الفُؤادَ بِنورِها مُتَشَفِّعا
+
+صَلَّى عَلَيْكَ اللهُ ما لَيْلٌ سَجا
+وَسَلامُهُ ما قَلْبُ صَبٍّ أُوْجِعا`
+  },
+  {
+    id: 5,
+    title: 'مناجاة',
+    tag: 'روحانيات',
+    category: 'other',
+    excerpt: 'يا دهشةَ السارينَ في ملكوتِهِ\nأنتَ "المنيرُ" يُضاءُ منكَ فضاؤُها',
+    text: `يا دهشةَ السارينَ في ملكوتِهِ
+أنتَ "المنيرُ" يُضاءُ منكَ فضاؤُها
+
+أنتَ "البديعُ" بصُنعِ كُلِّ عجيبةٍ
+أنتَ "الشكورُ" وفيكَ طابَ جزاؤُها
+
+أنتَ "الرؤوفُ" بحالِ عبدٍ واجفٍ
+يرجو أماناً يومَ حانَ حسابُها
+
+أنتَ العليمُ بما نُكنُّ من الهوى
+فارأفْ بحالي حينَ ضاعَ سراجُها
+
+منكَ الهدى، أنتَ الغفورُ لمن هفا
+أنتَ "الحليمُ" سترتَ سوءَ فعالِها
+
+أنتَ البصيرُ بضعفِ نفسٍ أُرهقت
+وأنا الصبورُ، وفي رِضاكَ عزاؤُها`
+  },
+  {
+    id: 6,
+    title: 'كُشِفَ القِناعُ',
+    tag: 'قضايا',
+    category: 'other',
+    excerpt: 'كُشِفَ القِناعُ فهل تَرى ماذا أرى؟\nأشلاءَ طفلٍ في العَرى',
+    text: `كُشِفَ القِناعُ فهل تَرى ماذا أرى؟
+أشلاءَ طفلٍ في العَرى
+داعبْ بعينيكَ الكَرى
+مُتقلبًا فوقَ الوَسائدِ في الوَثارةِ والظِلالْ
+وأسْرِجْ خيولَكَ في الخَيالْ
+نَقِّلْ خَيالَكَ في أساطيرِ الأُوَلْ
+وارقُصْ على طبلِ المَهانةِ والزَلَلْ
+ثم التحِفْ بسِجلِّ جدِّكَ والخبرْ
+أشِحِ البَصَرْ.. ولِّ الدُبُرْ..
+كُشِفَ القِناعُ
+فهل تَرى ماذا أرى؟
+كُلٌّ بهَمِّهِ قد سَرى
+هَدُّوا الصَوامِعَ والمساجدَ والدِيورْ
+وأدوا الحياةَ وقوَّضوا عُشَّ الطيورْ
+خَدِّرْ ضميرَكَ بالمخاوفِ والخَطَرْ
+يا أختَ عائشةَ التي صَبَرَتْ
+فأبكتْ في.. صَلابتِها الحَجَرُ
+طُهْرًا تَشِعُّ بسِتْرِها
+نورًا يُبدِّدُ غَيهبَ الشكِّ وأشباهَ الرِجالْ
+يا أختَ عائشةَ التي
+أخزتْ شواربَ طبعَتْ وتسابقتْ نحو الضَلالْ
+حرِّكْ بَنانَكَ بين أخبارِ البَشَرُ
+أذرِفْ دُموعَكَ للهواتفِ والصُوَرْ
+ما ضَرَّها خُذلانُ هذا أو أولاءْ
+إن هيَ ألَحَّتْ بالحياةِ
+فالحتمُ أن يجب القَدَر`
+  },
+  {
+    id: 7,
+    title: 'هنا الكويت',
+    tag: 'الكويت والوطن',
+    category: 'kuwait',
+    excerpt: 'كويتُ يا كعبةَ الأمجادِ والفِكرِ\nكأنَّها الصبحُ في لألائِهِ الغَمِرِ',
+    text: `كويتُ يا كعبةَ الأمجادِ والفِكرِ
+كأنَّها الصبحُ في لألائِهِ الغَمِرِ
+باقٍ وِدادُكِ في الأضلاعِ نحمِلُهُ
+حملَ الأمانةِ من مَهدٍ إلى قَبرِ
+يا دُرَّةً في جبينِ الدَّهرِ مشرقةً
+تأبى الهوانَ لباغٍ طائشٍ قَذِرِ
+بنتُ الخليجِ، وطيبُ الفعلِ ديدَنُها
+لكنّها الحتفُ في الهيجاءِ والخطرِ
+فمنْ أرادَ نِزالًا كُنتِ صاعقةً
+ومنْ أرادَ سَلامًا كُنتِ كالمَطَرِ
+هنا الكويتُ، هنا أرضي، هنا أثري
+هنا الجذورُ، هنا أهلي، هنا قَدَري`
+  },
+  {
+    id: 8,
+    title: 'كُلُّ القُلُوبِ',
+    tag: 'الكويت والوطن',
+    category: 'kuwait',
+    excerpt: 'كُلُّ القُلُوبِ إِلى الْكُوَيْتِ تَمِيلُ\nومَعِي بِهَذَا شَاهِدٌ ودَلِيلُ',
+    text: `كُلُّ القُلُوبِ إِلى الْكُوَيْتِ تَمِيلُ
+ومَعِي بِهَذَا شَاهِدٌ ودَلِيلُ
+أَمَّا الدَّلِيلُ إِذَا ذَكَرْتُكَ مَوْطِنِي
+صَارَتْ دُمُوعُ العَاشِقين تَسِيلُ
+يَا مَوْطِنَ الأَجْدَادِ يَا دَارَ الوَفَا
+وَأَنَا المُتَيَّمُ فِي هَوَاكِ عَلِيلُ
+هَذِي الكُوَيتُ وَمَا لِحُبِّي مَوْئِلٌ
+إِلَّا ثَرَاكِ.. وَلا سِوَاهُ بَدِيلُ
+هَذِي الكُوَيتُ وَمَا لِحُبِّي مَنزلٌ
+إِلَّا ثَرَاكِ.. وَلا سِوَاهُ بَدِيلُ`
+  },
+  {
+    id: 9,
+    title: 'وسمية المنصور',
+    tag: 'إهداءات',
+    category: 'other',
+    excerpt: 'وُسِمَتْ بِإِسْمِكِ لِلْمَعارِف بَصْمَةٌ\nفِي كُلِّ شِبْرٍ من حَيَاكِ حَدَائِقُ',
+    text: `وُسِمَتْ بِإِسْمِكِ لِلْمَعارِف بَصْمَةٌ
+فِي كُلِّ شِبْرٍ من حَيَاكِ حَدَائِقُ
+مَا كُنْت "تَاءً" لِلتَّأَنُّث إِنَّما
+أَنتِ المَنار، وَللأنام بَوَارقُ
+يا أُمَّ طَالبةِ العلوم وَعونها
+مَنْ لِلْقَوَاعد بعد فَقْدك عَاشقُ؟`
   }
+];
 
-  grid.innerHTML = list.map((poem, i) => {
-    const isAr = poem.lang !== 'english';
-    const excerpt = isAr
-      ? (poem.textAr || '').split('\n').slice(0, 4).join('\n')
-      : (poem.textEn || '').split('\n').slice(0, 4).join('\n');
-    const langLabel = poem.lang === 'arabic' ? 'ARABIC · عربي'
-      : poem.lang === 'english' ? 'ENGLISH'
-      : 'BILINGUAL · ثنائي';
-    return `
-      <div class="poem-card reveal" onclick="openPoem(${poem.id})" style="transition-delay:${i*60}ms">
-        <div class="card-lang">${langLabel}</div>
-        <div class="card-title ${isAr ? 'ar' : ''}">${poem.title}</div>
-        <div class="card-excerpt ${isAr ? 'ar' : ''}">${excerpt}</div>
-        <div class="card-footer">
-          <span class="card-date">${poem.date || ''}</span>
-          <span class="card-read">Read →</span>
-        </div>
-      </div>`;
-  }).join('');
+let activeFilter = 'all';
 
-  setTimeout(() => {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-  }, 50);
+function render() {
+  const grid = document.getElementById('grid');
+  const list = activeFilter === 'all' ? poems : poems.filter(p => p.category === activeFilter);
+  grid.innerHTML = list.map((p, i) => `
+    <div class="poem-card reveal" onclick="open(${p.id})" style="transition-delay:${i*60}ms">
+      <div class="card-tag">${p.tag}</div>
+      <div class="card-title">${p.title}</div>
+      <div class="card-excerpt">${p.excerpt}</div>
+      <div class="card-footer"><span class="card-read">اقرأ القصيدة →</span></div>
+    </div>`).join('');
+  setTimeout(() => document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible')), 50);
 }
 
-// ── FILTER ──
-function filterPoems(lang, btn) {
-  activeFilter = lang;
+function filter(cat, btn) {
+  activeFilter = cat;
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   render();
 }
 
-// ── OPEN POEM ──
-function openPoem(id) {
-  const poem = poems.find(p => p.id === id);
-  if (!poem) return;
-  currentPoemId = id;
-  const isAr = poem.lang !== 'english';
-  let html = `<div class="modal-title ${isAr ? 'ar' : ''}">${poem.title}</div>`;
-  if (poem.textAr) html += `<div class="modal-body ar">${poem.textAr}</div>`;
-  if (poem.textEn) html += `<div class="modal-body" style="margin-top:${poem.textAr?'32px':'0'}">${poem.textEn}</div>`;
-  if (poem.note) html += `<div class="modal-note">${poem.note}</div>`;
-  document.getElementById('modalContent').innerHTML = html;
-  document.getElementById('poemModal').classList.add('open');
+function open(id) {
+  const p = poems.find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('modalContent').innerHTML = `
+    <div class="modal-title">${p.title}</div>
+    <div class="modal-divider"></div>
+    <div class="modal-body">${p.text}</div>`;
+  document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 function closeModal() {
-  document.getElementById('poemModal').classList.remove('open');
-  document.body.style.overflow = '';
-  currentPoemId = null;
-}
-function closeModalOutside(e) {
-  if (e.target === document.getElementById('poemModal')) closeModal();
-}
-
-// ── DELETE ──
-function deleteCurrentPoem() {
-  if (!currentPoemId) return;
-  if (!confirm('Delete this poem?')) return;
-  poems = poems.filter(p => p.id !== currentPoemId);
-  localStorage.setItem(KEY, JSON.stringify(poems));
-  closeModal();
-  render();
-}
-
-// ── ADD POEM FORM ──
-function openForm() {
-  document.getElementById('formOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeForm() {
-  document.getElementById('formOverlay').classList.remove('open');
+  document.getElementById('modal').classList.remove('open');
   document.body.style.overflow = '';
 }
-function closeFormOutside(e) {
-  if (e.target === document.getElementById('formOverlay')) closeForm();
+function closeOutside(e) {
+  if (e.target === document.getElementById('modal')) closeModal();
 }
 
-function toggleFields() {
-  const lang = document.getElementById('poemLang').value;
-  document.getElementById('arabicField').style.display = (lang === 'arabic' || lang === 'bilingual') ? 'block' : 'none';
-  document.getElementById('englishField').style.display = (lang === 'english' || lang === 'bilingual') ? 'block' : 'none';
-}
-
-function savePoem() {
-  const title = document.getElementById('poemTitle').value.trim();
-  const lang = document.getElementById('poemLang').value;
-  const date = document.getElementById('poemDate').value.trim();
-  const textAr = document.getElementById('poemTextAr').value.trim();
-  const textEn = document.getElementById('poemTextEn').value.trim();
-  const note = document.getElementById('poemNote').value.trim();
-
-  if (!title) { alert('Please enter a title / أدخلي عنواناً'); return; }
-  if (!textAr && !textEn) { alert('Please enter the poem text / أدخلي نص القصيدة'); return; }
-
-  const poem = { id: Date.now(), title, lang, date, textAr, textEn, note };
-  poems.unshift(poem);
-  localStorage.setItem(KEY, JSON.stringify(poems));
-
-  // Reset form
-  ['poemTitle','poemDate','poemTextAr','poemTextEn','poemNote'].forEach(id => document.getElementById(id).value = '');
-
-  closeForm();
-  activeFilter = 'all';
-  document.querySelectorAll('.filter-btn').forEach((b,i) => b.classList.toggle('active', i===0));
-  render();
-}
-
-// ── INIT ──
 render();
 </script>
 </body>
