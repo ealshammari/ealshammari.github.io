@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Dr. Eiman Al-Shammari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Lato:wght@300;400;700&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: #fff;
+  color: #1c1c1c;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.96);
+  border-bottom: 1px solid #efefef;
+  padding: 0 60px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(8px);
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #1c1c1c;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.nav-logo:hover { color: #c0392b; }
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+.nav-links a {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: #1c1c1c; }
+.nav-contact-btn {
+  background: #1c1c1c !important;
+  color: #fff !important;
+  padding: 10px 22px;
+  font-size: 12px !important;
+}
+.nav-contact-btn:hover { background: #c0392b !important; }
+
+/* ── PAGE HEADER ── */
+.page-header {
+  padding: 120px 60px 48px;
+  border-bottom: 1px solid #efefef;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.page-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c0392b;
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+.page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #1c1c1c;
+  margin-bottom: 10px;
+}
+.page-subtitle {
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  color: #888;
+  font-size: 18px;
+}
+
+/* ── GALLERY WRAP ── */
+.gallery-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 52px 60px 100px;
+}
+
+/* ── LOADING ── */
+.loading {
+  text-align: center;
+  padding: 80px 40px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: #aaa;
+  font-size: 18px;
+}
+.loading-dots::after {
+  content: '';
+  animation: dots 1.5s steps(4, end) infinite;
+}
+@keyframes dots {
+  0%   { content: ''; }
+  25%  { content: '.'; }
+  50%  { content: '..'; }
+  75%  { content: '...'; }
+}
+
+/* ── GALLERY GRID ── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.gallery-item {
+  cursor: pointer;
+  overflow: hidden;
+  background: #f9f7f5;
+  border: 1px solid #efefef;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+.gallery-item:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  border-color: #ddd;
+}
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+.gallery-item:hover img { transform: scale(1.04); }
+
+/* ── EMPTY / ERROR ── */
+.empty-state {
+  text-align: center;
+  padding: 80px 40px;
+  display: none;
+}
+.empty-state.visible { display: block; }
+.empty-state h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #1c1c1c;
+  margin-bottom: 14px;
+}
+.empty-state p {
+  font-style: italic;
+  color: #888;
+  font-size: 16px;
+  line-height: 2;
+  font-family: 'Playfair Display', serif;
+}
+
+/* ── LIGHTBOX ── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10,10,10,0.97);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.lightbox.open { opacity: 1; pointer-events: auto; }
+
+.lb-img-wrap {
+  max-width: 88vw;
+  max-height: 82vh;
+  position: relative;
+}
+.lb-img-wrap img {
+  max-width: 88vw;
+  max-height: 82vh;
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.25s;
+}
+.lb-caption {
+  position: absolute;
+  bottom: -34px;
+  left: 0; right: 0;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+}
+
+.lb-close {
+  position: fixed;
+  top: 28px; right: 36px;
+  width: 44px; height: 44px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+  z-index: 210;
+}
+.lb-close:hover { border-color: #c0392b; color: #c0392b; }
+
+.lb-nav {
+  position: fixed;
+  top: 50%; transform: translateY(-50%);
+  z-index: 210;
+  width: 50px; height: 50px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255,255,255,0.6);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.lb-nav:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+.lb-nav.prev { left: 24px; }
+.lb-nav.next { right: 24px; }
+
+.lb-counter {
+  position: fixed;
+  bottom: 24px; left: 0; right: 0;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.25);
+  z-index: 210;
+  text-transform: uppercase;
+}
+
+/* ── REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── FOOTER ── */
+footer {
+  background: #1c1c1c;
+  color: rgba(255,255,255,0.35);
+  padding: 28px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+footer a:hover { color: #c0392b; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .page-header { padding: 110px 24px 36px; }
+  .gallery-wrap { padding: 36px 16px 70px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+  .lb-nav.prev { left: 8px; }
+  .lb-nav.next { right: 8px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Eiman Al-Shammari</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="books.html">Books</a></li>
+    <li><a href="blog.html">Poetry</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li><a href="interviews.html">Interviews</a></li>
+    <li><a href="index.html#contact" class="nav-contact-btn">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-eyebrow">معرض الصور</div>
+  <h1 class="page-title">Gallery</h1>
+  <p class="page-subtitle">Moments, events &amp; impressions</p>
+</div>
+
+<div class="gallery-wrap">
+  <div id="loading" class="loading">Loading gallery<span class="loading-dots"></span></div>
+  <div class="gallery-grid" id="galleryGrid"></div>
+  <div class="empty-state" id="emptyState">
+    <h3>No images yet</h3>
+    <p>Upload images to the <em>gallery/</em> folder in your GitHub repository<br>and they will appear here automatically.</p>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose">✕</button>
+  <button class="lb-nav prev" id="lbPrev">&#8592;</button>
+  <div class="lb-img-wrap">
+    <img id="lbImg" src="" alt="">
+    <div class="lb-caption" id="lbCaption"></div>
+  </div>
+  <button class="lb-nav next" id="lbNext">&#8594;</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<footer>
+  <span>© 2025 Eiman Al-Shammari</span>
+  <span>Articles &amp; Publications</span>
+  <span>© 2025</span>
+</footer>
+
+<script>
+// ── Auto-loads every image from the gallery/ folder via GitHub API ──
+// No manual listing needed. Just upload images to the gallery/ folder.
+
+const GITHUB_USER = 'ealshammari';
+const GITHUB_REPO = 'ealshammari.github.io';
+const GALLERY_FOLDER = 'gallery';
+const IMAGE_EXTS = ['jpg','jpeg','png','gif','webp','avif','svg'];
+
+const API_URL = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GALLERY_FOLDER}`;
+
+const grid     = document.getElementById('galleryGrid');
+const emptyEl  = document.getElementById('emptyState');
+const loadEl   = document.getElementById('loading');
+const lightbox = document.getElementById('lightbox');
+const lbImg    = document.getElementById('lbImg');
+const lbCap    = document.getElementById('lbCaption');
+const lbCount  = document.getElementById('lbCounter');
+
+let IMAGES = [];
+let current = 0;
+
+// Fetch folder contents from GitHub API
+fetch(API_URL)
+  .then(r => {
+    if (!r.ok) throw new Error('GitHub API error: ' + r.status);
+    return r.json();
+  })
+  .then(files => {
+    // Filter to image files only
+    IMAGES = files
+      .filter(f => f.type === 'file' && IMAGE_EXTS.includes(f.name.split('.').pop().toLowerCase()))
+      .map(f => ({
+        src: `${GALLERY_FOLDER}/${f.name}`,
+        caption: '',
+        name: f.name
+      }));
+
+    loadEl.style.display = 'none';
+
+    if (IMAGES.length === 0) {
+      emptyEl.classList.add('visible');
+      return;
+    }
+
+    // Build grid
+    IMAGES.forEach((img, i) => {
+      const item = document.createElement('div');
+      item.className = 'gallery-item reveal';
+      item.style.transitionDelay = (i % 10 * 55) + 'ms';
+      item.innerHTML = `<img src="${img.src}" alt="Gallery image ${i + 1}" loading="${i < 8 ? 'eager' : 'lazy'}">`;
+      item.addEventListener('click', () => openLB(i));
+      grid.appendChild(item);
+    });
+
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach((e, idx) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), idx * 55);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  })
+  .catch(() => {
+    loadEl.style.display = 'none';
+    emptyEl.classList.add('visible');
+    document.querySelector('#emptyState h3').textContent = 'Could not load gallery';
+    document.querySelector('#emptyState p').textContent =
+      'Make sure the gallery folder exists in your GitHub repository.';
+  });
+
+// ── Lightbox ──
+function openLB(i) {
+  current = i; updateLB();
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLB() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function updateLB() {
+  lbImg.style.opacity = '0';
+  setTimeout(() => {
+    lbImg.src = IMAGES[current].src;
+    lbCap.textContent = IMAGES[current].caption || '';
+    lbCount.textContent = (current + 1) + ' of ' + IMAGES.length;
+    lbImg.style.opacity = '1';
+  }, 150);
+}
+function nextLB() { current = (current + 1) % IMAGES.length; updateLB(); }
+function prevLB() { current = (current - 1 + IMAGES.length) % IMAGES.length; updateLB(); }
+
+document.getElementById('lbClose').addEventListener('click', closeLB);
+document.getElementById('lbNext').addEventListener('click', nextLB);
+document.getElementById('lbPrev').addEventListener('click', prevLB);
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLB(); });
+
+let tx = 0;
+lightbox.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+lightbox.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 50) { dx < 0 ? nextLB() : prevLB(); }
+}, { passive: true });
+
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'ArrowRight') nextLB();
+  if (e.key === 'ArrowLeft')  prevLB();
+  if (e.key === 'Escape')     closeLB();
+});
+</script>
+</body>
+</html>
