@@ -4,54 +4,41 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Articles — Dr. Eiman Al-Shammari</title>
-<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet">
 <style>
-.article-item {
-  padding: 40px 0;
-  border-bottom: 1px solid rgba(184,146,42,0.18);
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 40px;
-  align-items: start;
-  transition: background 0.3s;
-  margin: 0 -20px; padding-left: 20px; padding-right: 20px;
-}
-.article-item:hover { background: rgba(184,146,42,0.04); }
-.art-year {
-  font-family: 'Cinzel', serif; font-size: 11px;
-  letter-spacing: 0.1em; color: var(--gold);
-  padding-top: 6px;
-}
-.art-body {}
-.art-title { font-size: 22px; font-weight: 400; margin-bottom: 10px; line-height: 1.3; }
-.art-venue { font-size: 14px; font-style: italic; color: var(--rust); margin-bottom: 10px; }
-.art-abstract { font-size: 16px; line-height: 1.7; opacity: 0.6; margin-bottom: 16px; }
-.art-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-.art-tag {
-  font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.15em;
-  padding: 5px 12px; border: 1px solid var(--gold-pale); color: var(--gold);
-}
-.art-link {
-  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.2em;
-  color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
-  border-bottom: 1px solid var(--gold-pale); padding-bottom: 2px; margin-top: 12px;
-  transition: gap 0.3s, border-color 0.3s;
-}
-.art-link:hover { gap: 12px; border-color: var(--gold); }
-
-.placeholder-banner {
-  background: rgba(184,146,42,0.06);
-  border: 1px dashed var(--gold-pale);
-  padding: 40px; text-align: center;
-  margin-bottom: 60px; border-radius: 2px;
-}
-.placeholder-banner p { font-style: italic; opacity: 0.5; margin-bottom: 12px; }
-.placeholder-banner strong { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.2em; color: var(--gold); }
-
-@media (max-width: 768px) {
-  .article-item { grid-template-columns: 1fr; gap: 4px; }
-}
+:root{--ink:#1a1209;--parchment:#f5ede0;--gold:#b8922a;--gold-light:#d4aa4a;--gold-pale:#e8d5a0;--rust:#7a3520;--cream:#faf5ec;--shadow:rgba(26,18,9,0.15);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;line-height:1.7;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.4;}
+.page-border{position:fixed;inset:12px;border:1px solid var(--gold-pale);pointer-events:none;z-index:100;}
+.page-border::before{content:'';position:absolute;inset:4px;border:1px solid rgba(184,146,42,0.2);}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 60px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(12px);background:rgba(250,245,236,0.92);border-bottom:1px solid rgba(184,146,42,0.2);}
+.nav-logo{font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.25em;color:var(--gold);text-decoration:none;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.2em;color:var(--ink);text-decoration:none;opacity:0.6;transition:opacity .3s,color .3s;}
+.nav-links a:hover,.nav-links a.active{opacity:1;color:var(--gold);}
+.page-header{padding:160px 60px 80px;max-width:1100px;margin:0 auto;}
+.page-eyebrow{font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.4em;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:16px;}
+.page-eyebrow::after{content:'';display:inline-block;width:60px;height:1px;background:var(--gold-pale);}
+.page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7vw,90px);font-weight:300;line-height:1.0;color:var(--ink);}
+.page-title em{font-style:italic;color:var(--rust);}
+.content{max-width:1100px;margin:0 auto;padding:0 60px 120px;}
+.article-item{padding:40px 20px;border-bottom:1px solid rgba(184,146,42,0.18);display:grid;grid-template-columns:80px 1fr;gap:40px;align-items:start;transition:background .3s;margin:0 -20px;}
+.article-item:hover{background:rgba(184,146,42,0.04);}
+.art-year{font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.1em;color:var(--gold);padding-top:6px;}
+.art-title{font-size:22px;font-weight:400;margin-bottom:10px;line-height:1.3;}
+.art-venue{font-size:14px;font-style:italic;color:var(--rust);margin-bottom:10px;}
+.art-abstract{font-size:16px;line-height:1.7;opacity:0.6;margin-bottom:16px;}
+.art-tags{display:flex;gap:8px;flex-wrap:wrap;}
+.art-tag{font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.15em;padding:5px 12px;border:1px solid var(--gold-pale);color:var(--gold);}
+.divider{text-align:center;padding:20px 0;color:var(--gold-pale);font-size:20px;letter-spacing:0.5em;}
+footer{background:var(--ink);color:var(--parchment);padding:28px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(184,146,42,0.2);font-size:11px;opacity:0.8;font-family:'Cinzel',serif;letter-spacing:0.1em;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:768px){nav{padding:14px 20px;}.nav-links{gap:14px;}.nav-links a{font-size:9px;}.page-header{padding:120px 24px 60px;}.content{padding:0 24px 80px;}.article-item{grid-template-columns:1fr;gap:4px;}.page-border{display:none;}footer{flex-direction:column;gap:8px;text-align:center;padding:24px;}}
 </style>
 </head>
 <body>
@@ -75,21 +62,45 @@
 
 <div class="content">
 
-  <div class="placeholder-banner">
-    <p>Links to some of my published work</p>
-    <a href="https://scholar.google.com/citations?hl=en&user=cUMYvfkAAAAJ&view_op=list_works&sortby=pubdate">Google Scholar</a></li>
-    <strong>Contact me to update this section</strong>
-    <p>Links to some of my Arabic Articles</p>
-    <li><a href="https://www.aljarida.com/article/117901" class="active">سعاد الصباح.انتصار الثقافة للهوية</a></li>
-    <li><a href="al-jazirah.com/2017/20171231/ar8.html">نرجسية</a></li>
-  
-  </li>
-    
-    <strong>Contact me to update this section</strong>
+  <a href="https://scholar.google.fr/citations?user=cUMYvfkAAAAJ&hl=de" target="_blank" style="display:flex;align-items:center;justify-content:space-between;background:var(--ink);color:var(--parchment);padding:28px 40px;text-decoration:none;margin-bottom:60px;border:1px solid rgba(184,146,42,0.3);transition:background .3s;" onmouseover="this.style.background='#2a1e0d'" onmouseout="this.style.background='var(--ink)'">
+    <div>
+      <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.3em;color:var(--gold);margin-bottom:8px;">GOOGLE SCHOLAR PROFILE</div>
+      <div style="font-size:20px;font-style:italic;opacity:0.8;">View all publications, citations & academic metrics</div>
+    </div>
+    <div style="font-family:'Cinzel',serif;font-size:20px;color:var(--gold);letter-spacing:0.1em;">→</div>
+  </a>
+
+  <div class="article-item reveal">
+    <div class="art-year">2025</div>
+    <div>
+      <div class="art-title">PMT-X-Smart: Agent-Based Simulation of Anti-Phishing Behavior in Smart City Contexts</div>
+      <div class="art-venue">Submitted — IEEE COMPSAC 2026</div>
+      <div class="art-abstract">An extension of Protection Motivation Theory incorporating agent-based modeling to simulate cybersecurity behavioral responses in smart city environments.</div>
+      <div class="art-tags"><span class="art-tag">Cybersecurity</span><span class="art-tag">Agent-Based Modeling</span><span class="art-tag">PMT</span><span class="art-tag">Smart Cities</span></div>
+    </div>
   </div>
 
+  <div class="article-item reveal">
+    <div class="art-year">2024</div>
+    <div>
+      <div class="art-title">المدائح النبوية في الأدب الكويتي</div>
+      <div class="art-venue">Literary scholarship</div>
+      <div class="art-abstract">Documentation and critical study of the prophetic praise poetry tradition in Kuwaiti literary heritage, with biographical profiles of Kuwaiti poets in this tradition.</div>
+      <div class="art-tags"><span class="art-tag">Arabic Literature</span><span class="art-tag">Kuwaiti Heritage</span><span class="art-tag">Islamic Poetry</span></div>
+    </div>
+  </div>
 
+  <div class="article-item reveal">
+    <div class="art-year">—</div>
+    <div>
+      <div class="art-title">Additional peer-reviewed publications — Springer & Taylor & Francis</div>
+      <div class="art-venue">International peer-reviewed journals</div>
+      <div class="art-abstract">Research spanning Arabic NLP, social network analysis, computational intelligence, e-government, adversarial robustness in phishing detection, and bioinformatics.</div>
+      <div class="art-tags"><span class="art-tag">Springer</span><span class="art-tag">Taylor & Francis</span><span class="art-tag">Arabic NLP</span></div>
+    </div>
+  </div>
 
+</div>
 
 <div class="divider">✦ ✦ ✦</div>
 <footer>
@@ -98,10 +109,8 @@
   <span>© 2025</span>
 </footer>
 <script>
-const reveals = document.querySelectorAll('.reveal');
-const obs = new IntersectionObserver(entries => {
-  entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*100); obs.unobserve(e.target); } });
-},{threshold:0.1});
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100);obs.unobserve(e.target);}});},{threshold:0.1});
 reveals.forEach(el=>obs.observe(el));
 </script>
 </body>

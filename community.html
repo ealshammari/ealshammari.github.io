@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community — Dr. Eiman Al-Shammari</title>
+<meta name="description" content="Dr. Eiman Al-Shammari's community work — Guinness World Record anti-bullying campaign, BENA charity team, cybersecurity awareness, and History in Colour exhibitions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Lato:wght@300;400;700&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:#fff;color:#1c1c1c;font-family:'Lato',sans-serif;font-weight:300;font-size:17px;line-height:1.75;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);border-bottom:1px solid #efefef;padding:0 60px;height:68px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(8px);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#1c1c1c;text-decoration:none;}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center;}
+.nav-links a{font-family:'Lato',sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#666;text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:#1c1c1c;}
+.nav-cta{background:#1c1c1c!important;color:#fff!important;padding:10px 22px!important;}
+.nav-cta:hover{background:#c0392b!important;}
+
+/* HERO */
+.page-hero{background:#1c1c1c;padding:140px 60px 90px;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(192,57,43,0.08) 0%,transparent 70%);}
+.page-hero-inner{max-width:1200px;margin:0 auto;position:relative;}
+.page-eyebrow{font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:#c0392b;margin-bottom:20px;font-weight:400;}
+.page-title{font-family:'Playfair Display',serif;font-size:clamp(44px,7vw,84px);font-weight:400;line-height:1.0;color:#fff;margin-bottom:24px;}
+.page-title em{font-style:italic;color:#c0392b;}
+.page-lead{font-size:19px;line-height:1.8;color:#888;max-width:680px;}
+
+/* GUINNESS BANNER */
+.guinness-banner{background:#c0392b;padding:48px 60px;display:flex;align-items:center;gap:40px;}
+.guinness-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:40px;width:100%;}
+.guinness-icon{font-size:64px;flex-shrink:0;}
+.guinness-text h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,36px);font-weight:400;color:#fff;margin-bottom:8px;}
+.guinness-text p{font-size:17px;color:rgba(255,255,255,0.8);line-height:1.6;}
+.guinness-year{font-family:'Playfair Display',serif;font-size:72px;font-weight:400;color:rgba(255,255,255,0.15);margin-left:auto;flex-shrink:0;}
+
+/* PATENT BANNER */
+.patent-banner{background:#5b7fa6;padding:36px 60px;}
+.patent-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:32px;}
+.patent-icon{font-size:44px;flex-shrink:0;}
+.patent-text h3{font-family:'Playfair Display',serif;font-size:22px;color:#fff;margin-bottom:6px;font-weight:400;}
+.patent-text p{font-size:15px;color:rgba(255,255,255,0.75);}
+.patent-num{font-family:'Lato',sans-serif;font-size:12px;letter-spacing:0.15em;color:rgba(255,255,255,0.5);margin-left:auto;flex-shrink:0;}
+
+/* ACTIVITIES */
+.activities-wrap{max-width:1200px;margin:0 auto;padding:90px 60px;}
+.section-eyebrow{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#c0392b;margin-bottom:14px;font-weight:400;}
+.section-h{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,50px);font-weight:400;line-height:1.15;color:#1c1c1c;margin-bottom:56px;}
+.section-h em{font-style:italic;color:#c0392b;}
+
+.activity-list{display:flex;flex-direction:column;gap:0;}
+.activity-item{display:grid;grid-template-columns:100px 1fr;gap:40px;padding:48px 0;border-bottom:1px solid #efefef;align-items:start;transition:background .2s;}
+.activity-item:hover{background:#faf8f5;margin:0 -20px;padding-left:20px;padding-right:20px;}
+.activity-year-col{text-align:right;padding-top:4px;}
+.activity-year{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;color:#e0d8d0;line-height:1;}
+.activity-status{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#c0392b;margin-top:4px;}
+.activity-icon{font-size:28px;margin-bottom:14px;display:block;}
+.activity-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:500;color:#1c1c1c;margin-bottom:12px;line-height:1.2;}
+.activity-desc{font-size:16px;line-height:1.85;color:#666;margin-bottom:16px;}
+.activity-tag{display:inline-block;font-family:'Lato',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;padding:6px 14px;border:1px solid #e0e0e0;color:#888;margin-right:6px;margin-top:4px;}
+.activity-tag.red{border-color:rgba(192,57,43,0.3);color:#c0392b;}
+
+/* WDS */
+.wds-band{background:#faf8f5;padding:70px 60px;border-top:1px solid #efefef;border-bottom:1px solid #efefef;}
+.wds-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.wds-text .section-eyebrow{margin-bottom:12px;}
+.wds-text h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.2;color:#1c1c1c;margin-bottom:20px;}
+.wds-text h2 em{font-style:italic;color:#c0392b;}
+.wds-text p{font-size:17px;line-height:1.85;color:#666;}
+.wds-stats{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.wds-stat{padding:28px 24px;border:1px solid #efefef;}
+.wds-stat-num{font-family:'Playfair Display',serif;font-size:44px;font-weight:400;color:#c0392b;line-height:1;margin-bottom:6px;}
+.wds-stat-lbl{font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;font-weight:400;}
+
+footer{background:#1c1c1c;color:#777;padding:28px 60px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:0.05em;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+  nav{padding:0 20px;} .nav-links{display:none;}
+  .page-hero{padding:110px 24px 70px;}
+  .guinness-banner,.patent-banner{padding:40px 24px;}
+  .guinness-inner,.patent-inner{flex-wrap:wrap;gap:20px;}
+  .guinness-year{display:none;}
+  .patent-num{display:none;}
+  .activities-wrap{padding:60px 24px;}
+  .activity-item{grid-template-columns:1fr;gap:8px;}
+  .activity-year-col{text-align:left;}
+  .wds-band{padding:60px 24px;} .wds-inner{grid-template-columns:1fr;gap:40px;}
+  footer{flex-direction:column;gap:8px;text-align:center;padding:24px;}
+  .featured-grid{grid-template-columns:1fr!important;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Eiman Al-Shammari</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="books.html">Books</a></li>
+    <li><a href="blog.html">Poetry</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="community.html" class="active">Community</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="interviews.html">Interviews</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">Giving Back</div>
+    <h1 class="page-title">Community &<br><em>Impact</em></h1>
+    <p class="page-lead">From a Guinness World Record to grassroots charity work — two decades of building community, fighting bullying, and empowering Kuwait's next generation.</p>
+  </div>
+</div>
+
+<!-- GUINNESS BANNER -->
+<div class="guinness-banner">
+  <div class="guinness-inner">
+    <div class="guinness-icon">🏆</div>
+    <div class="guinness-text">
+      <h2>Guinness World Record Holder</h2>
+      <p>Created the world's largest digital anti-bullying album — a landmark achievement born from a grassroots campaign to protect Kuwait's youth online.</p>
+    </div>
+    <div class="guinness-year">2016</div>
+  </div>
+</div>
+
+<!-- PATENT BANNER -->
+<div class="patent-banner">
+  <div class="patent-inner">
+    <div class="patent-icon">🔬</div>
+    <div class="patent-text">
+      <h3>US Patent Holder — Arabic NLP</h3>
+      <p>Lemmatizing, Stemming, and Query Expansion Method and System — advancing Arabic language technology for the world.</p>
+    </div>
+    <div class="patent-num">PATENT NO. 2010/82333</div>
+  </div>
+</div>
+
+<!-- WDS -->
+<div class="wds-band">
+  <div class="wds-inner">
+    <div class="wds-text reveal">
+      <div class="section-eyebrow">2025</div>
+      <h2>Women in Data Science<br><em>Ambassador in Kuwait</em></h2>
+      <p>Representing Kuwait in the global Women in Data Science (WiDS) initiative — advocating for women in technology, data science, and AI research across the region.</p>
+    </div>
+    <div class="wds-stats reveal">
+      <div class="wds-stat">
+        <div class="wds-stat-num">20+</div>
+        <div class="wds-stat-lbl">Years in Academia</div>
+      </div>
+      <div class="wds-stat">
+        <div class="wds-stat-num">13</div>
+        <div class="wds-stat-lbl">H-index</div>
+      </div>
+      <div class="wds-stat">
+        <div class="wds-stat-num">2019</div>
+        <div class="wds-stat-lbl">BENA Team Founded</div>
+      </div>
+      <div class="wds-stat">
+        <div class="wds-stat-num">2015</div>
+        <div class="wds-stat-lbl">Anti-Bullying Campaign</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ACTIVITIES -->
+<div class="activities-wrap">
+  <div class="section-eyebrow reveal">Initiatives</div>
+  <h2 class="section-h reveal">Community <em>Work</em></h2>
+
+  <!-- FEATURED: الديوان الحي -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px;" class="featured-grid">
+    <div style="background:#1c1c1c;padding:56px 48px;position:relative;overflow:hidden;" class="reveal">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#c0392b;"></div>
+      <div style="font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:#c0392b;margin-bottom:20px;font-weight:400;">مشروع ثقافي · 2026</div>
+      <div style="font-family:'Noto Naskh Arabic',serif;font-size:36px;color:#fff;margin-bottom:8px;direction:rtl;text-align:right;font-weight:600;">الديوان الحي</div>
+      <div style="font-family:'Playfair Display',serif;font-size:20px;color:#888;margin-bottom:24px;font-style:italic;">Al-Diwan Al-Hay</div>
+      <p style="font-size:16px;line-height:1.85;color:#999;margin-bottom:28px;">تطويع الذكاء الاصطناعي لخدمة اللغة العربية — مشروع إعلامي ثقافي يقدّم الشعر العربي في صيغة سمعية وبصرية معاصرة، يجمع بين الشعر والتكنولوجيا والهوية العربية.</p>
+      <img src="images/aldiwan-alhay.png" alt="الديوان الحي" style="width:100%;max-height:200px;object-fit:contain;opacity:0.85;margin-bottom:24px;">
+      <div style="display:flex;align-items:center;gap:12px;padding:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);">
+        <div style="font-size:22px;">📰</div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:14px;color:#fff;margin-bottom:2px;">الجريدة — مارس 2026</div>
+          <div style="font-size:13px;color:#666;">«الشمري: الديوان الحي تطويع للذكاء الاصطناعي لخدمة اللغة العربية»</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURED: History in Color -->
+    <div style="background:#faf8f5;padding:56px 48px;border:1px solid #efefef;position:relative;" class="reveal">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#c0392b;"></div>
+      <div style="font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:#c0392b;margin-bottom:20px;font-weight:400;">معارض · Exhibitions</div>
+      <div style="font-family:'Noto Naskh Arabic',serif;font-size:36px;color:#1c1c1c;margin-bottom:8px;direction:rtl;text-align:right;font-weight:600;">التاريخ ملوّنا</div>
+      <div style="font-family:'Playfair Display',serif;font-size:20px;color:#aaa;margin-bottom:24px;font-style:italic;">History in Color</div>
+      <p style="font-size:16px;line-height:1.85;color:#666;margin-bottom:28px;">سلسلة معارض تُقدّم الأحداث التاريخية من خلال مزيج مبتكر من المناهج التعليمية والذكاء الاصطناعي وفن الكولاج والتنبؤ بالألوان — تجعل سرد التاريخ أكثر جاذبية وإبداعاً.</p>
+      <div style="text-align:center;padding:20px;background:#fff;border:1px solid #efefef;">
+        <img src="images/history-in-color-logo.png" alt="التاريخ ملونا — History in Color" style="max-height:180px;max-width:100%;object-fit:contain;">
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWSPAPER CLIPPING -->
+  <div style="margin-bottom:60px;border:1px solid #efefef;display:grid;grid-template-columns:320px 1fr;gap:0;overflow:hidden;" class="reveal">
+    <img src="images/aljarida-diwan.jpg" alt="الجريدة — الديوان الحي" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+    <div style="padding:40px 44px;background:#fff;">
+      <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#c0392b;margin-bottom:16px;">As Featured In</div>
+      <div style="font-family:'Playfair Display',serif;font-size:28px;color:#1c1c1c;margin-bottom:8px;line-height:1.2;">الجريدة</div>
+      <div style="font-size:14px;color:#aaa;margin-bottom:20px;letter-spacing:0.08em;">AL-JARIDA NEWSPAPER · MARCH 27, 2026</div>
+      <div style="font-family:'Noto Naskh Arabic',serif;font-size:20px;color:#1c1c1c;direction:rtl;text-align:right;line-height:1.7;margin-bottom:16px;">«الشمري: الديوان الحي تطويع للذكاء الاصطناعي لخدمة اللغة العربية»</div>
+      <p style="font-size:15px;line-height:1.8;color:#888;">A full feature article on Dr. Eiman Al-Shammari's cultural AI initiative — presenting Arabic poetry in contemporary audio-visual format for modern audiences.</p>
+    </div>
+  </div>
+
+  <div class="activity-list">
+
+    <div class="activity-item reveal">
+      <div class="activity-year-col">
+        <div class="activity-year">2019</div>
+        <div class="activity-status">Active</div>
+      </div>
+      <div>
+        <span class="activity-icon">🤝</span>
+        <div class="activity-title">Leader of BENA Team for Charity Work</div>
+        <div class="activity-desc">Founded and leading a government-registered charity team, organizing community projects and initiatives focused on education, welfare, and societal improvement across Kuwait. BENA has grown into a sustained force for positive change, running regular campaigns, educational programs, and social support activities.</div>
+        <span class="activity-tag red">Government Registered</span>
+        <span class="activity-tag">Charity</span>
+        <span class="activity-tag">Education</span>
+        <span class="activity-tag">Ongoing</span>
+      </div>
+    </div>
+
+    <div class="activity-item reveal">
+      <div class="activity-year-col">
+        <div class="activity-year">2016</div>
+        <div class="activity-status">Record</div>
+      </div>
+      <div>
+        <span class="activity-icon">🏆</span>
+        <div class="activity-title">Anti-Bullying Campaign & Guinness World Record</div>
+        <div class="activity-desc">Launched a landmark anti-bullying campaign in 2015 promoting kindness, respect, and digital safety within the Kuwaiti community. The campaign culminated in 2016 with a Guinness World Record for creating the largest digital anti-bullying album — a testament to the power of community mobilization and youth engagement.</div>
+        <span class="activity-tag red">Guinness World Record 2016</span>
+        <span class="activity-tag">Anti-Bullying</span>
+        <span class="activity-tag">Digital Safety</span>
+      </div>
+    </div>
+
+    <div class="activity-item reveal">
+      <div class="activity-year-col">
+        <div class="activity-year">2017</div>
+        <div class="activity-status">Schools</div>
+      </div>
+      <div>
+        <span class="activity-icon">🛡</span>
+        <div class="activity-title">Be Aware — Cybersecurity Campaign for Schools</div>
+        <div class="activity-desc">Initiated and led the "Be Aware" cybersecurity awareness campaign, providing free educational sessions in schools across Kuwait. The program educated students on safe internet practices, digital ethics, online privacy, and responsible social media use — reaching thousands of young Kuwaitis.</div>
+        <span class="activity-tag">Cybersecurity</span>
+        <span class="activity-tag">Schools</span>
+        <span class="activity-tag">Free Program</span>
+      </div>
+    </div>
+
+    <div class="activity-item reveal">
+      <div class="activity-year-col">
+        <div class="activity-year">2026</div>
+        <div class="activity-status">Featured</div>
+      </div>
+      <div>
+        <span class="activity-icon">🎙</span>
+        <div class="activity-title">الديوان الحي — AI & Arabic Poetry</div>
+        <div class="activity-desc">A cultural media initiative harnessing Artificial Intelligence to serve the Arabic language — presenting classical and contemporary Arabic poetry in immersive audio-visual formats accessible to modern audiences across the Arab world.</div>
+        <span class="activity-tag red">الجريدة — March 2026</span>
+        <span class="activity-tag">AI</span>
+        <span class="activity-tag">Arabic Poetry</span>
+        <span class="activity-tag">Cultural Media</span>
+      </div>
+    </div>
+
+    <div class="activity-item reveal">
+      <div class="activity-year-col">
+        <div class="activity-year">2025</div>
+        <div class="activity-status">Ambassador</div>
+      </div>
+      <div>
+        <span class="activity-icon">💡</span>
+        <div class="activity-title">Women in Data Science Ambassador — Kuwait</div>
+        <div class="activity-desc">Appointed as the Women in Data Science (WiDS) Ambassador for Kuwait, representing the country in a global initiative that inspires and educates data scientists worldwide, with a focus on supporting women in the field of data science, AI, and technology research.</div>
+        <span class="activity-tag red">WiDS 2025</span>
+        <span class="activity-tag">Women in Tech</span>
+        <span class="activity-tag">Data Science</span>
+      </div>
+    </div>
+
+    <div class="activity-item reveal">
+      <div class="activity-year-col">
+        <div class="activity-year">—</div>
+        <div class="activity-status">Ongoing</div>
+      </div>
+      <div>
+        <span class="activity-icon">📚</span>
+        <div class="activity-title">Promoter of Arabic Language & Children's Literacy</div>
+        <div class="activity-desc">Published the first electronic Arabic children's book sold on Amazon ("I Stutter Sometimes", 2017), advocating for Arabic literacy and cultural preservation among young readers. Continues to publish bilingual books that bring Gulf heritage, Islamic values, and Arabic storytelling to the next generation.</div>
+        <span class="activity-tag">Arabic Literacy</span>
+        <span class="activity-tag">Children's Books</span>
+        <span class="activity-tag">Gulf Heritage</span>
+      </div>
+    </div>
+
+    <div class="activity-item reveal">
+      <div class="activity-year-col">
+        <div class="activity-year">—</div>
+        <div class="activity-status">Volunteer</div>
+      </div>
+      <div>
+        <span class="activity-icon">🎓</span>
+        <div class="activity-title">Volunteer Educator & Mentor</div>
+        <div class="activity-desc">Regularly volunteers as a tutor and mentor for students and young professionals in IT and cybersecurity, sharing insights into career development, digital ethics, and technology use. Committed to building the next generation of Kuwaiti technology leaders.</div>
+        <span class="activity-tag">Mentorship</span>
+        <span class="activity-tag">IT Education</span>
+        <span class="activity-tag">Youth</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 Dr. Eiman Al-Shammari</span>
+  <span>Community & Social Impact</span>
+</footer>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});},{threshold:0.1});
+reveals.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
