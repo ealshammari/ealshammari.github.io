@@ -3,122 +3,278 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interviews — Dr. Eiman Al-Shammari</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<title>Interviews & Media — Dr. Eiman Al-Shammari</title>
+<meta name="description" content="Media coverage featuring Dr. Eiman Al-Shammari in Al-Qabas, Al-Jarida, Al-Raya Qatar, KUNA, Al-Wasat and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Lato:wght@300;400;700&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-.interviews-intro {
-  max-width: 580px; font-size: 20px; font-style: italic;
-  opacity: 0.6; margin-bottom: 70px; line-height: 1.7;
-}
-.interview-item {
-  display: grid; grid-template-columns: 140px 1fr;
-  gap: 48px; padding: 48px 0;
-  border-bottom: 1px solid rgba(184,146,42,0.18);
-  align-items: start;
-  transition: background 0.3s;
-  margin: 0 -20px; padding-left: 20px; padding-right: 20px;
-}
-.interview-item:hover { background: rgba(184,146,42,0.04); }
-.interview-meta {
-  text-align: right; padding-top: 4px;
-}
-.interview-date {
-  font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.15em;
-  color: var(--gold); display: block; margin-bottom: 6px;
-}
-.interview-medium {
-  font-size: 13px; font-style: italic; opacity: 0.45;
-}
-.interview-title { font-size: 24px; font-weight: 400; margin-bottom: 12px; line-height: 1.3; }
-.interview-outlet {
-  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.2em;
-  color: var(--rust); margin-bottom: 12px;
-}
-.interview-excerpt { font-size: 17px; line-height: 1.8; opacity: 0.6; margin-bottom: 20px; }
-.interview-link {
-  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.2em;
-  color: var(--gold); text-decoration: none;
-  border-bottom: 1px solid var(--gold-pale); padding-bottom: 2px;
-  display: inline-flex; align-items: center; gap: 8px;
-  transition: gap 0.3s, border-color 0.3s;
-}
-.interview-link:hover { gap: 12px; border-color: var(--gold); }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:#fff;color:#1c1c1c;font-family:'Lato',sans-serif;font-weight:300;font-size:17px;line-height:1.75;}
 
-.coming-soon {
-  text-align: center; padding: 100px 40px;
-  border: 1px dashed rgba(184,146,42,0.25); background: rgba(184,146,42,0.03);
-}
-.coming-soon .big { font-size: 64px; margin-bottom: 24px; opacity: 0.3; }
-.coming-soon h3 {
-  font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 0.3em;
-  color: var(--gold); margin-bottom: 16px;
-}
-.coming-soon p { font-size: 18px; font-style: italic; opacity: 0.5; max-width: 400px; margin: 0 auto; }
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);border-bottom:1px solid #efefef;padding:0 60px;height:68px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(8px);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#1c1c1c;text-decoration:none;}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center;}
+.nav-links a{font-family:'Lato',sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#666;text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:#1c1c1c;}
+.nav-cta{background:#1c1c1c!important;color:#fff!important;padding:10px 22px!important;}
+.nav-cta:hover{background:#c0392b!important;}
 
-@media (max-width: 768px) {
-  .interview-item { grid-template-columns: 1fr; gap: 8px; }
-  .interview-meta { text-align: left; }
+/* HEADER */
+.page-header{padding:130px 60px 60px;max-width:1200px;margin:0 auto;}
+.page-eyebrow{font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:#c0392b;margin-bottom:14px;font-weight:400;}
+.page-title{font-family:'Playfair Display',serif;font-size:clamp(48px,7vw,88px);font-weight:400;line-height:1.0;color:#1c1c1c;}
+.page-title em{font-style:italic;color:#c0392b;}
+.page-subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:#999;margin-top:12px;}
+
+hr.divider{border:none;border-top:1px solid #efefef;margin:0 60px;}
+
+.content{max-width:1200px;margin:0 auto;padding:60px 60px 100px;}
+
+/* MEDIA COUNTER */
+.media-count{display:flex;gap:48px;margin-bottom:60px;padding-bottom:48px;border-bottom:1px solid #efefef;}
+.count-item{}
+.count-num{font-family:'Playfair Display',serif;font-size:48px;font-weight:400;color:#1c1c1c;line-height:1;}
+.count-lbl{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#aaa;margin-top:4px;}
+
+/* FEATURED */
+.featured-card{display:grid;grid-template-columns:200px 1fr;gap:0;margin-bottom:48px;border:1px solid #efefef;overflow:hidden;transition:box-shadow .3s;}
+.featured-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.08);}
+.featured-outlet{background:#1c1c1c;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;position:relative;}
+.featured-outlet::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:#c0392b;}
+.outlet-ar{font-family:'Noto Naskh Arabic',serif;font-size:32px;color:#fff;font-weight:600;direction:rtl;margin-bottom:6px;}
+.outlet-en{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#666;font-weight:400;}
+.outlet-country{font-size:11px;color:#c0392b;margin-top:8px;letter-spacing:0.1em;}
+.featured-body{padding:40px 48px;}
+.card-tag{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:#c0392b;margin-bottom:14px;font-weight:400;}
+.card-title-ar{font-family:'Noto Naskh Arabic',serif;font-size:24px;direction:rtl;text-align:right;color:#1c1c1c;margin-bottom:8px;line-height:1.5;font-weight:600;}
+.card-title-en{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:#888;margin-bottom:18px;line-height:1.5;}
+.card-desc{font-size:15px;line-height:1.85;color:#777;margin-bottom:20px;}
+.card-meta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.card-date{font-size:12px;color:#bbb;letter-spacing:0.08em;}
+.read-link{display:inline-flex;align-items:center;gap:8px;font-family:'Lato',sans-serif;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#c0392b;text-decoration:none;border-bottom:1px solid rgba(192,57,43,0.3);padding-bottom:2px;transition:gap .2s;}
+.read-link:hover{gap:12px;}
+
+/* MEDIA LIST */
+.media-list{display:flex;flex-direction:column;gap:0;}
+.media-item{display:grid;grid-template-columns:140px 1fr;gap:32px;padding:36px 0;border-bottom:1px solid #efefef;align-items:start;transition:background .2s;}
+.media-item:hover{background:#faf8f5;margin:0 -20px;padding-left:20px;padding-right:20px;}
+.media-outlet-box{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80px;border:1px solid #efefef;padding:14px 10px;text-align:center;}
+.media-outlet-name{font-family:'Noto Naskh Arabic',serif;font-size:22px;color:#1c1c1c;direction:rtl;line-height:1.2;font-weight:600;}
+.media-outlet-sub{font-size:10px;letter-spacing:0.1em;color:#bbb;margin-top:4px;text-transform:uppercase;}
+.media-body{}
+.media-tag{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#c0392b;margin-bottom:10px;font-weight:400;}
+.media-title{font-family:'Noto Naskh Arabic',serif;font-size:22px;direction:rtl;text-align:right;color:#1c1c1c;margin-bottom:6px;line-height:1.5;font-weight:600;}
+.media-title-en{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:#999;margin-bottom:12px;}
+.media-desc{font-size:15px;line-height:1.8;color:#777;margin-bottom:14px;}
+.media-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.media-date{font-size:12px;color:#bbb;letter-spacing:0.08em;}
+
+footer{background:#1c1c1c;color:#777;padding:28px 60px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:0.05em;}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+  nav{padding:0 20px;} .nav-links{display:none;}
+  .page-header{padding:110px 24px 40px;}
+  hr.divider{margin:0 24px;}
+  .content{padding:40px 24px 80px;}
+  .featured-card{grid-template-columns:1fr;}
+  .featured-outlet{padding:28px 24px;flex-direction:row;gap:12px;justify-content:flex-start;}
+  .media-item{grid-template-columns:1fr;gap:10px;}
+  .media-count{gap:24px;flex-wrap:wrap;}
+  footer{flex-direction:column;gap:8px;text-align:center;padding:24px;}
 }
 </style>
 </head>
 <body>
-<div class="page-border"></div>
+
 <nav>
-  <a href="index.html" class="nav-logo">Dr. Eiman</a>
+  <a href="index.html" class="nav-logo">Eiman Al-Shammari</a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="articles.html">Articles</a></li>
     <li><a href="books.html">Books</a></li>
     <li><a href="blog.html">Poetry</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="community.html">Community</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="interviews.html" class="active">Interviews</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
 
 <div class="page-header">
-  <div class="page-eyebrow">In Conversation</div>
+  <div class="page-eyebrow">في الصحافة</div>
   <h1 class="page-title">Interviews &<br><em>Media</em></h1>
+  <div class="page-subtitle">تغطيات إعلامية في الكويت وقطر والعالم العربي</div>
 </div>
+
+<hr class="divider">
 
 <div class="content">
-  <p class="interviews-intro">Conversations on poetry, research, Gulf heritage, and the space between scholarship and literary art.</p>
 
-  <!-- Add your interviews here. Example format below. -->
-  <!-- Uncomment and fill in when you have interviews to add:
+  <!-- COUNTER -->
+  <div class="media-count reveal">
+    <div class="count-item"><div class="count-num">6+</div><div class="count-lbl">Media Outlets</div></div>
+    <div class="count-item"><div class="count-num">🇰🇼</div><div class="count-lbl">Kuwait</div></div>
+    <div class="count-item"><div class="count-num">🇶🇦</div><div class="count-lbl">Qatar</div></div>
+    <div class="count-item"><div class="count-num">2019—2026</div><div class="count-lbl">Coverage Period</div></div>
+  </div>
 
-  <div class="interview-item reveal">
-    <div class="interview-meta">
-      <span class="interview-date">2024</span>
-      <span class="interview-medium">Print / Online</span>
+  <!-- FEATURED: Al-Jarida 2026 -->
+  <div class="featured-card reveal">
+    <div class="featured-outlet">
+      <div class="outlet-ar">الجريدة</div>
+      <div class="outlet-en">Al-Jarida</div>
+      <div class="outlet-country">🇰🇼 Kuwait · 2026</div>
     </div>
-    <div>
-      <div class="interview-title">Interview title here</div>
-      <div class="interview-outlet">Publication / Channel Name</div>
-      <div class="interview-excerpt">A short excerpt or description of what the interview covered...</div>
-      <a href="LINK_HERE" target="_blank" class="interview-link">Read Interview →</a>
+    <div class="featured-body">
+      <div class="card-tag">Latest Feature · مارس 2026</div>
+      <div class="card-title-ar">الشمري: «الديوان الحي» تطويع للذكاء الاصطناعي لخدمة اللغة العربية</div>
+      <div class="card-title-en">"Al-Shammari: Al-Diwan Al-Hay — Harnessing AI to Serve the Arabic Language"</div>
+      <div class="card-desc">A full-page feature in Al-Jarida on Dr. Eiman's cultural initiative presenting classical Arabic poetry in contemporary audio-visual format using AI — a landmark project at the intersection of technology and literary heritage.</div>
+      <div class="card-meta">
+        <span class="card-date">الجريدة · العدد 6206 · 27 مارس 2026</span>
+      </div>
     </div>
   </div>
 
-  -->
-
-  <div class="coming-soon">
-    <div class="big">🎙</div>
-    <h3>COMING SOON</h3>
-    <p>Interviews and media appearances will be listed here. Send links to add them.</p>
+  <!-- FEATURED: Al-Raya Qatar -->
+  <div class="featured-card reveal">
+    <div class="featured-outlet">
+      <div class="outlet-ar">الراية</div>
+      <div class="outlet-en">Al-Raya</div>
+      <div class="outlet-country">🇶🇦 Qatar · 2019</div>
+    </div>
+    <div class="featured-body">
+      <div class="card-tag">Qatar Coverage · يناير 2019</div>
+      <div class="card-title-ar">«التاريخ ملوناً» يعتمد تقنية الذكاء الاصطناعي</div>
+      <div class="card-title-en">"History in Color Uses Artificial Intelligence Technology"</div>
+      <div class="card-desc">Coverage of the History in Color exhibition at Katara Cultural Village, Doha — the first exhibition in the world to display AI-colorized historical photographs. Dr. Eiman is described as the first Arab woman to enter Guinness World Records through a humanitarian campaign, and the first Arab woman to enter the Burma-Bangladesh border for relief work in 2017.</div>
+      <div class="card-meta">
+        <span class="card-date">جريدة الراية · الدوحة · 1 يناير 2019</span>
+        <a href="https://www.raya.com/2019/01/01/%D8%A7%D9%84%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE-%D9%85%D9%84%D9%88%D9%86%D8%A7%D9%8B-%D9%8A%D8%B9%D8%AA%D9%85%D8%AF-%D8%AA%D9%82%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7" target="_blank" class="read-link">Read Article →</a>
+      </div>
+    </div>
   </div>
 
+  <!-- MEDIA LIST -->
+  <div class="media-list">
+
+    <div class="media-item reveal">
+      <div class="media-outlet-box">
+        <div class="media-outlet-name">القبس</div>
+        <div class="media-outlet-sub">Kuwait</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">History in Color · التاريخ ملونا</div>
+        <div class="media-title">فنانة كويتية تؤكد أهمية تقديم التاريخ بطرق فنية جديدة</div>
+        <div class="media-title-en">"Kuwaiti Artist Affirms the Importance of Presenting History Through New Artistic Methods"</div>
+        <div class="media-desc">A feature interview in Kuwait's Al-Qabas newspaper on the History in Color initiative — discussing her vision of making history accessible through AI, collage art, and color as a storytelling medium.</div>
+        <div class="media-footer">
+          <span class="media-date">جريدة القبس · الكويت</span>
+          <a href="https://www.alqabas.com/article/622278-%D9%81%D9%86%D8%A7%D9%86%D8%A9-%D9%83%D9%88%D9%8A%D8%AA%D9%8A%D8%A9-%D8%AA%D8%A4%D9%83%D8%AF-%D8%A3%D9%87%D9%85%D9%8A%D8%A9-%D8%AA%D9%82%D8%AF%D9%8A%D9%85-%D8%A7%D9%84%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE/" target="_blank" class="read-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-outlet-box">
+        <div class="media-outlet-name">الجريدة</div>
+        <div class="media-outlet-sub">Kuwait</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">History in Color · فبراير 2019</div>
+        <div class="media-title">الشمري: «التاريخ ملوناً» معرضي الرابع في الكويت</div>
+        <div class="media-title-en">"Al-Shammari: History in Color — My Fourth Exhibition in Kuwait"</div>
+        <div class="media-desc">Coverage of the History in Color exhibition at Al-Shamiya and Shuwaikh Cooperative Society — the first art exhibition held inside a cooperative in Kuwait. Dr. Eiman discusses her vision of breathing life into forgotten history through AI-colorized photographs and art.</div>
+        <div class="media-footer">
+          <span class="media-date">جريدة الجريدة · 3 فبراير 2019</span>
+          <a href="https://www.aljarida.com/articles/1549120041664731900" target="_blank" class="read-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-outlet-box">
+        <div class="media-outlet-name">الوسط</div>
+        <div class="media-outlet-sub">Kuwait</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Press Coverage · 2019</div>
+        <div class="media-title">تغطية جريدة الوسط</div>
+        <div class="media-title-en">Al-Wasat Newspaper Coverage</div>
+        <div class="media-desc">Coverage in Kuwait's Al-Wasat newspaper of Dr. Eiman Al-Shammari's work and cultural initiatives.</div>
+        <div class="media-footer">
+          <span class="media-date">جريدة الوسط · الكويت · 3 فبراير 2019</span>
+          <a href="https://www.alwasat.com.kw/ArticleDetail.aspx?id=100892" target="_blank" class="read-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-outlet-box">
+        <div class="media-outlet-name">الوطن</div>
+        <div class="media-outlet-sub">Kuwait</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Press Coverage · 2019</div>
+        <div class="media-title">تغطية جريدة الوطن</div>
+        <div class="media-title-en">Al-Watan Newspaper Coverage</div>
+        <div class="media-desc">Coverage in Kuwait's Al-Watan newspaper of Dr. Eiman Al-Shammari's initiatives and creative projects.</div>
+        <div class="media-footer">
+          <span class="media-date">جريدة الوطن · الكويت · 2019</span>
+          <a href="https://alwatan.kuwait.tt/articledetails.aspx?id=580447&yearquarter=20191" target="_blank" class="read-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-outlet-box">
+        <div class="media-outlet-name">كونا</div>
+        <div class="media-outlet-sub">Kuwait</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Kuwait News Agency · كونا</div>
+        <div class="media-title">تغطية وكالة الأنباء الكويتية</div>
+        <div class="media-title-en">Kuwait News Agency — Official Coverage</div>
+        <div class="media-desc">Coverage by the official Kuwait News Agency (KUNA) of Dr. Eiman Al-Shammari's academic and community work.</div>
+        <div class="media-footer">
+          <span class="media-date">وكالة الأنباء الكويتية · كونا</span>
+          <a href="https://www.kuna.net.kw/ArticleDetails.aspx?id=2768495" target="_blank" class="read-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-outlet-box">
+        <div class="media-outlet-name">كونا</div>
+        <div class="media-outlet-sub">Kuwait</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Kuwait News Agency · كونا</div>
+        <div class="media-title">تغطية وكالة الأنباء الكويتية</div>
+        <div class="media-title-en">Kuwait News Agency — Additional Coverage</div>
+        <div class="media-desc">Additional coverage by the Kuwait News Agency of Dr. Eiman Al-Shammari's work.</div>
+        <div class="media-footer">
+          <span class="media-date">وكالة الأنباء الكويتية · كونا</span>
+          <a href="https://www.kuna.net.kw/ArticlePrintPage.aspx?id=2745783&language=ar" target="_blank" class="read-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<div class="divider">✦ ✦ ✦</div>
 <footer>
-  <span>Dr. Eiman Al-Shammari</span>
-  <span>Interviews & Media</span>
-  <span>© 2025</span>
+  <span>© 2025 Dr. Eiman Al-Shammari</span>
+  <span>Interviews & Media Coverage</span>
 </footer>
+
 <script>
-const reveals = document.querySelectorAll('.reveal');
-const obs = new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100);obs.unobserve(e.target);}});},{threshold:0.1});
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100);obs.unobserve(e.target);}});},{threshold:0.1});
 reveals.forEach(el=>obs.observe(el));
 </script>
 </body>
