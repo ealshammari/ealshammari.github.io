@@ -57,7 +57,7 @@ hr.divider{border:none;border-top:1px solid #efefef;margin:0 60px;}
 
 /* MEDIA LIST */
 .media-list{display:flex;flex-direction:column;gap:0;}
-.media-item{display:grid;grid-template-columns:140px 1fr;gap:32px;padding:36px 0;border-bottom:1px solid #efefef;align-items:start;transition:background .2s;}
+.media-item{display:grid;grid-template-columns:60px 140px 1fr;gap:24px;padding:36px 0;border-bottom:1px solid #efefef;align-items:start;transition:background .2s;}.media-year-col{text-align:right;}.media-year{font-family:"Playfair Display",serif;font-size:28px;font-weight:400;color:#e0d8d0;line-height:1;padding-top:6px;}
 .media-item:hover{background:#faf8f5;margin:0 -20px;padding-left:20px;padding-right:20px;}
 .media-outlet-box{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80px;border:1px solid #efefef;padding:14px 10px;text-align:center;}
 .media-outlet-name{font-family:'Noto Naskh Arabic',serif;font-size:22px;color:#1c1c1c;direction:rtl;line-height:1.2;font-weight:600;}
@@ -82,7 +82,7 @@ footer{background:#1c1c1c;color:#777;padding:28px 60px;display:flex;justify-cont
   .content{padding:40px 24px 80px;}
   .featured-card{grid-template-columns:1fr;}
   .featured-outlet{padding:28px 24px;flex-direction:row;gap:12px;justify-content:flex-start;}
-  .media-item{grid-template-columns:1fr;gap:10px;}
+  .media-item{grid-template-columns:1fr;gap:8px;}.media-year-col{text-align:left;}
   .media-count{gap:24px;flex-wrap:wrap;}
   footer{flex-direction:column;gap:8px;text-align:center;padding:24px;}
 }
@@ -116,10 +116,29 @@ footer{background:#1c1c1c;color:#777;padding:28px 60px;display:flex;justify-cont
 
   <!-- COUNTER -->
   <div class="media-count reveal">
-    <div class="count-item"><div class="count-num">6+</div><div class="count-lbl">Media Outlets</div></div>
+    <div class="count-item"><div class="count-num">23+</div><div class="count-lbl">Media Sources</div></div>
     <div class="count-item"><div class="count-num">🇰🇼</div><div class="count-lbl">Kuwait</div></div>
     <div class="count-item"><div class="count-num">🇶🇦</div><div class="count-lbl">Qatar</div></div>
-    <div class="count-item"><div class="count-num">2019—2026</div><div class="count-lbl">Coverage Period</div></div>
+    <div class="count-item"><div class="count-num">2016—2026</div><div class="count-lbl">Coverage Period</div></div>
+  </div>
+
+  <!-- FEATURED: Al-Jarida WiDS 2025 -->
+  <div class="featured-card reveal">
+    <div class="featured-outlet">
+      <div class="outlet-ar">الجريدة</div>
+      <div class="outlet-en">Al-Jarida</div>
+      <div class="outlet-country">🇰🇼 Kuwait · 2025</div>
+    </div>
+    <div class="featured-body">
+      <div class="card-tag">WiDS Ambassador · فبراير 2025</div>
+      <div class="card-title-ar">إيمان الشمري سفيرة لمبادرة «نساء في علم البيانات»</div>
+      <div class="card-title-en">"Eiman Al-Shammari Appointed Ambassador for Women in Data Science (WiDS) — Kuwait"</div>
+      <div class="card-desc">A feature article on Dr. Eiman's appointment as Kuwait's WiDS Ambassador for the global initiative launched by Stanford University in 2015. The article highlights her US Patent No. 8473279, 30+ peer-reviewed publications, cybersecurity awareness initiatives with Kuwait National Guard, and the History in Color project.</div>
+      <div class="card-meta">
+        <span class="card-date">الجريدة · فضة المعيلي · 7 فبراير 2025</span>
+        <a href="https://www.aljarida.com/article/89525" target="_blank" class="read-link">Read Full Article →</a>
+      </div>
+    </div>
   </div>
 
   <!-- FEATURED: Al-Jarida 2026 -->
@@ -163,6 +182,7 @@ footer{background:#1c1c1c;color:#777;padding:28px 60px;display:flex;justify-cont
   <div class="media-list">
 
     <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">—</div></div>
       <div class="media-outlet-box">
         <div class="media-outlet-name">القبس</div>
         <div class="media-outlet-sub">Kuwait</div>
@@ -180,6 +200,7 @@ footer{background:#1c1c1c;color:#777;padding:28px 60px;display:flex;justify-cont
     </div>
 
     <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">—</div></div>
       <div class="media-outlet-box">
         <div class="media-outlet-name">الجريدة</div>
         <div class="media-outlet-sub">Kuwait</div>
@@ -197,6 +218,7 @@ footer{background:#1c1c1c;color:#777;padding:28px 60px;display:flex;justify-cont
     </div>
 
     <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">—</div></div>
       <div class="media-outlet-box">
         <div class="media-outlet-name">الوسط</div>
         <div class="media-outlet-sub">Kuwait</div>
@@ -214,6 +236,7 @@ footer{background:#1c1c1c;color:#777;padding:28px 60px;display:flex;justify-cont
     </div>
 
     <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">—</div></div>
       <div class="media-outlet-box">
         <div class="media-outlet-name">الوطن</div>
         <div class="media-outlet-sub">Kuwait</div>
@@ -231,6 +254,7 @@ footer{background:#1c1c1c;color:#777;padding:28px 60px;display:flex;justify-cont
     </div>
 
     <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">—</div></div>
       <div class="media-outlet-box">
         <div class="media-outlet-name">كونا</div>
         <div class="media-outlet-sub">Kuwait</div>
@@ -248,6 +272,7 @@ footer{background:#1c1c1c;color:#777;padding:28px 60px;display:flex;justify-cont
     </div>
 
     <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">—</div></div>
       <div class="media-outlet-box">
         <div class="media-outlet-name">كونا</div>
         <div class="media-outlet-sub">Kuwait</div>
@@ -260,6 +285,388 @@ footer{background:#1c1c1c;color:#777;padding:28px 60px;display:flex;justify-cont
         <div class="media-footer">
           <span class="media-date">وكالة الأنباء الكويتية · كونا</span>
           <a href="https://www.kuna.net.kw/ArticlePrintPage.aspx?id=2745783&language=ar" target="_blank" class="read-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">—</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name" style="font-size:14px;">الشرق الأوسط</div>
+        <div class="media-outlet-sub">International</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">International Arabic Press · صحيفة دولية</div>
+        <div class="media-title">الأكاديمية الكويتية الدكتورة إيمان طعمة الشمري</div>
+        <div class="media-title-en">"The Kuwaiti Academic Dr. Eiman Tamah Al-Shammari"</div>
+        <div class="media-desc">Feature in Asharq Al-Awsat — the pan-Arab international daily newspaper — on Dr. Eiman Al-Shammari's academic and cultural work.</div>
+        <div class="media-footer">
+          <span class="media-date">الشرق الأوسط · لندن</span>
+          <a href="https://aawsat.com/home/arab-ajam/666596/%D8%A7%D9%84%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9-%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA%D9%8A%D8%A9-%D8%A7%D9%84%D8%AF%D9%83%D8%AA%D9%88%D8%B1%D8%A9-%D8%A5%D9%8A%D9%85%D8%A7%D9%86-%D8%B7%D8%B9%D9%85%D8%A9-%D8%A7%D9%84%D8%B4%D9%85%D8%B1%D9%8A" target="_blank" class="read-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">—</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name">الوفد</div>
+        <div class="media-outlet-sub">Egypt 🇪🇬</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Egyptian Press Coverage</div>
+        <div class="media-title">تغطية جريدة الوفد المصرية</div>
+        <div class="media-title-en">Al-Wafd Egyptian Newspaper — Coverage</div>
+        <div class="media-desc">Coverage in Egypt's Al-Wafd newspaper of Dr. Eiman Al-Shammari — extending her reach across the Arab world from Kuwait to Egypt.</div>
+        <div class="media-footer">
+          <span class="media-date">جريدة الوفد · القاهرة</span>
+          <a href="https://www.alwafd.news/1680604" target="_blank" class="read-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">—</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name">الأنباء</div>
+        <div class="media-outlet-sub">Kuwait 🇰🇼</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Kuwait Press · الأنباء</div>
+        <div class="media-title">تغطية جريدة الأنباء الكويتية</div>
+        <div class="media-title-en">Al-Anba Kuwait — Latest Coverage</div>
+        <div class="media-desc">Coverage in Kuwait's Al-Anba newspaper of Dr. Eiman Al-Shammari's latest activities and contributions.</div>
+        <div class="media-footer">
+          <span class="media-date">جريدة الأنباء · الكويت</span>
+          <a href="https://www.alanba.com.kw/1209527/" target="_blank" class="read-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">2016</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name" style="font-size:13px;">الشروق</div>
+        <div class="media-outlet-sub">Algeria 🇩🇿 · 2016</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Guinness World Record · يونيو 2016</div>
+        <div class="media-title">دكتورة كويتية تدخل موسوعة «غينيس» بجمعها أكبر ألبوم رقمي للصور</div>
+        <div class="media-title-en">"Kuwaiti Doctor Enters Guinness World Records with the Largest Digital Photo Album"</div>
+        <div class="media-desc">A full interview in Algeria's Echorouk — one of the largest Arabic newspapers in North Africa — featuring Dr. Eiman's account of the "عار عليك" anti-bullying campaign that collected over 13,000 photos and earned Kuwait a Guinness World Record. Her reach extended from Kuwait to the Algerian press.</div>
+        <div class="media-footer">
+          <span class="media-date">الشروق أونلاين · الجزائر · 14 يونيو 2016</span>
+          <a href="https://www.echoroukonline.com/%D8%AF%D9%83%D8%AA%D9%88%D8%B1%D8%A9-%D9%83%D9%88%D9%8A%D8%AA%D9%8A%D8%A9-%D8%AA%D8%AF%D8%AE%D9%84-%D9%85%D9%88%D8%B3%D9%88%D8%B9%D8%A9-%D8%BA%D9%8A%D9%86%D9%8A%D8%B3-%D8%A8%D8%AC%D9%85%D8%B9" target="_blank" class="read-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">2024</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name" style="font-size:12px;">Kuwait University</div>
+        <div class="media-outlet-sub">Official · 2024</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Kuwait University Official News · ديسمبر 2024</div>
+        <div class="media-title">قسم علوم المعلومات نظّم زيارة لمعرض الكويت الدولي للكتاب لطلبة كلية العلوم الحياتية</div>
+        <div class="media-title-en">"Information Science Dept. Organizes Visit to Kuwait International Book Fair for Life Sciences Students"</div>
+        <div class="media-desc">Official news from Kuwait University's College of Life Sciences — Dr. Eiman Al-Shammari supervised a cultural and academic visit to the Kuwait International Book Fair, emphasizing the role of cultural activities in enriching students' academic and social lives.</div>
+        <div class="media-footer">
+          <span class="media-date">كلية العلوم الحياتية · جامعة الكويت · 16 ديسمبر 2024</span>
+          <a href="https://cls.ku.edu.kw/ar/media-center/news/visit-kuwait-international-book-fair" target="_blank" class="read-link">Read Official News →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">—</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name" style="font-size:12px;">مندومة</div>
+        <div class="media-outlet-sub">Academic DB</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Academic Research Database · قاعدة بيانات أكاديمية</div>
+        <div class="media-title">ملف الباحثة إيمان طعمة الشمري — مندومة</div>
+        <div class="media-title-en">Academic Research Profile — Mandumah Arab Research Database</div>
+        <div class="media-desc">Dr. Eiman Al-Shammari's academic profile and research publications indexed in Mandumah — the leading Arab academic research database covering peer-reviewed Arabic-language research across all disciplines.</div>
+        <div class="media-footer">
+          <span class="media-date">قاعدة مندومة للبحوث العربية</span>
+          <a href="https://search.mandumah.com/Author/Home?author=%D8%A7%D9%84%D8%B4%D9%85%D8%B1%D9%8A%D8%8C+%D8%A5%D9%8A%D9%85%D8%A7%D9%86+%D8%B7%D8%B9%D9%85%D8%A9" target="_blank" class="read-link">View Profile →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">2004</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name">القبس</div>
+        <div class="media-outlet-sub">Kuwait · 2004</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Academic Milestone · 2004/2005</div>
+        <div class="media-title">جامعة الكويت تعلن أسماء المرشحين والمرشحات لنيل الدكتوراه</div>
+        <div class="media-title-en">"Kuwait University Announces PhD Candidates for 2004/2005"</div>
+        <div class="media-desc">A historic record in Al-Qabas newspaper listing Dr. Eiman Al-Shammari among Kuwait University's PhD candidates for the 2004/2005 academic year — the beginning of a distinguished academic journey.</div>
+        <div class="media-footer">
+          <span class="media-date">جريدة القبس · العام الجامعي 2004/2005</span>
+          <a href="https://www.alqabas.com/article/163991-%D9%84%D9%84%D8%B9%D8%A7%D9%85-%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D9%8A-20042005%D8%AC%D8%A7%D9%85%D8%B9%D8%A9-%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA-%D8%AA%D8%B9%D9%84%D9%86-%D8%A3%D8%B3%D9%85/" target="_blank" class="read-link">View Record →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TV INTERVIEW -->
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">2025</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name" style="font-size:12px;">📺 تلفزيون</div>
+        <div class="media-outlet-sub">Kuwait TV · 2025</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">TV Interview · برنامج صباح الخير يا كويت · فبراير 2025</div>
+        <div class="media-title">لقاء د. إيمان طعمة الشمري في برنامج «صباح الخير يا كويت»</div>
+        <div class="media-title-en">"Dr. Eiman Al-Shammari on Good Morning Kuwait — WiDS Ambassador"</div>
+        <div class="media-desc">A television interview on Kuwait's popular morning program about her appointment as Kuwait's Women in Data Science (WiDS) Ambassador — the full interview is on YouTube.</div>
+        <div class="media-footer">
+          <span class="media-date">صباح الخير يا كويت · 9 فبراير 2025</span>
+          <a href="https://youtu.be/raMSGMqDA_A" target="_blank" class="read-link">Watch on YouTube →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">—</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name">لوسيل</div>
+        <div class="media-outlet-sub">Qatar 🇶🇦</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Qatar Daily · جريدة لوسيل</div>
+        <div class="media-title">تغطية جريدة لوسيل القطرية</div>
+        <div class="media-title-en">Lusail News Qatar — Multiple Coverage Items</div>
+        <div class="media-desc">Multiple features in Qatar's Lusail News daily newspaper covering Dr. Eiman Al-Shammari's academic and cultural work.</div>
+        <div class="media-footer">
+          <span class="media-date">جريدة لوسيل · قطر</span>
+          <a href="https://lusailnews.net/tags/%D8%A5%D9%8A%D9%85%D8%A7%D9%86-%D8%B7%D8%B9%D9%85%D8%A9-%D8%A7%D9%84%D8%B4%D9%85%D8%B1%D9%8A" target="_blank" class="read-link">View All →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">2024</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name" style="font-size:12px;">Instagram</div>
+        <div class="media-outlet-sub">KU Reel · 2024</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Kuwait University · Instagram Reel · 2024</div>
+        <div class="media-title">منشور كلية العلوم الحياتية — جامعة الكويت</div>
+        <div class="media-title-en">College of Life Sciences, Kuwait University — Featured Reel</div>
+        <div class="media-desc">An Instagram reel from Kuwait University's College of Life Sciences featuring Dr. Eiman Al-Shammari.</div>
+        <div class="media-footer">
+          <span class="media-date">كلية العلوم الحياتية · جامعة الكويت</span>
+          <a href="https://www.instagram.com/reels/C5WH1WUMdU7/" target="_blank" class="read-link">Watch Reel →</a>
+        </div>
+      </div>
+    </div>
+        <div class="media-outlet-sub">Saudi Arabia 🇸🇦</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Saudi Press · 2017 · الجزيرة السعودية</div>
+        <div class="media-title">مقال في صحيفة الجزيرة السعودية</div>
+        <div class="media-title-en">Al-Jazirah Saudi Newspaper — Feature Article</div>
+        <div class="media-desc">Coverage in Al-Jazirah — one of Saudi Arabia's leading daily newspapers — featuring Dr. Eiman Al-Shammari's work, reaching readers across the Arabian Gulf and the wider Arab world.</div>
+        <div class="media-footer">
+          <span class="media-date">صحيفة الجزيرة · المملكة العربية السعودية · 2017</span>
+          <a href="https://www.al-jazirah.com/writers/20172488.html" target="_blank" class="read-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">—</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name" style="font-size:13px;">LinkedIn</div>
+        <div class="media-outlet-sub">Article · مقال</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">LinkedIn Pulse · مقال منشور</div>
+        <div class="media-title">يوم الدستور</div>
+        <div class="media-title-en">"Constitution Day" — LinkedIn Article</div>
+        <div class="media-desc">An article by Dr. Eiman Al-Shammari published on LinkedIn Pulse about Kuwait's Constitution Day — reflecting on national identity, heritage, and the significance of this historic occasion.</div>
+        <div class="media-footer">
+          <span class="media-date">LinkedIn Pulse · د. إيمان الشمري</span>
+          <a href="https://www.linkedin.com/pulse/%D9%8A%D9%88%D9%85-%D8%A7%D9%84%D8%AF%D8%B3%D8%AA%D9%88%D8%B1-eiman-alshammari/" target="_blank" class="read-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">—</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name" style="font-size:13px;">Instagram</div>
+        <div class="media-outlet-sub">Social Media</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Social Media · Featured Post</div>
+        <div class="media-title">منشور مميز على Instagram</div>
+        <div class="media-title-en">Featured Instagram Post</div>
+        <div class="media-desc">Featured post on Instagram highlighting Dr. Eiman Al-Shammari's work and initiatives.</div>
+        <div class="media-footer">
+          <span class="media-date">Instagram</span>
+          <a href="https://www.instagram.com/p/DSSOULQCqny/" target="_blank" class="read-link">View Post →</a>
+        </div>
+      </div>
+    </div>
+      <div class="media-body">
+        <div class="media-tag">Literary Criticism · ديسمبر 2025</div>
+        <div class="media-title">سعاد الصباح... انتصار الثقافة للهوية</div>
+        <div class="media-title-en">"Suad Al-Sabah... Culture's Triumph for Identity"</div>
+        <div class="media-desc">An opinion article by Dr. Eiman Al-Shammari published in Al-Jarida — a literary and cultural critique exploring the meaning of identity, belonging, and the role of culture as a form of personal conviction and social language.</div>
+        <div class="media-footer">
+          <span class="media-date">جريدة الجريدة · 19 ديسمبر 2025</span>
+          <a href="https://www.aljarida.com/article/117901" target="_blank" class="read-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">2024</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name">أكاديميا</div>
+        <div class="media-outlet-sub">Kuwait · 2024</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Academic Conference · مارس 2024</div>
+        <div class="media-title">الشمري شاركت في مؤتمر «اللغة العربية لوارثيها: قضايا ومقاربات» في قطر</div>
+        <div class="media-title-en">"Al-Shammari Participates in 'Arabic Language for Its Heirs' Conference in Qatar"</div>
+        <div class="media-desc">Coverage in Kuwait's academic newspaper Acadimia of Dr. Eiman's participation in the Doha Institute for Graduate Studies conference (February 24-26, 2024), where she presented a research paper on AI technologies in teaching Arabic to non-native speakers — covering machine learning, machine translation, and speech recognition.</div>
+        <div class="media-footer">
+          <span class="media-date">جريدة أكاديميا · 3 مارس 2024</span>
+          <a href="https://acakuw.com/archives/175561" target="_blank" class="read-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+        <div class="media-outlet-sub">Kuwait · 2016</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Guinness World Record · يونيو 2016</div>
+        <div class="media-title">إيمان الشمري تدخل موسوعة غينيس بجمعها أكبر ألبوم رقمي للصور</div>
+        <div class="media-title-en">"Eiman Al-Shammari Enters Guinness World Records with the Largest Digital Photo Album"</div>
+        <div class="media-desc">Coverage in Kuwait's Al-Anba newspaper of the landmark Guinness World Record achievement — the largest digital anti-bullying album.</div>
+        <div class="media-footer">
+          <span class="media-date">جريدة الأنباء · 14 يونيو 2016</span>
+          <a href="https://web.archive.org/web/20191210153854/http://www.alanba.com.kw/ar/kuwait-news/659752/14-06-2016-%D8%A7%D9%8A%D9%85%D8%A7%D9%86-%D8%A7%D9%84%D8%B4%D9%85%D8%B1%D9%8A-%D8%AA%D8%AF%D8%AE%D9%84-%D9%85%D9%88%D8%B3%D9%88%D8%B9%D8%A9-%D8%BA%D9%8A%D9%86%D9%8A%D8%B3-%D8%A8%D8%AC%D9%85%D8%B9%D9%87%D8%A7-%D8%A7%D9%83%D8%A8%D8%B1-%D8%A7%D9%84%D8%A8%D9%88%D9%85-%D8%B1%D9%82%D9%85%D9%8A-%D9%84%D9%84%D8%B5%D9%88%D8%B1" target="_blank" class="read-link">Read Archive →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">2016</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name">الخليج</div>
+        <div class="media-outlet-sub">Kuwait · 2016</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Guinness World Record · 2016</div>
+        <div class="media-title">إيمان الشمري: «shame on you» تؤهل الكويت لدخول غينيس</div>
+        <div class="media-title-en">"Eiman Al-Shammari: 'Shame On You' Campaign Qualifies Kuwait for Guinness"</div>
+        <div class="media-desc">Coverage of the anti-bullying campaign that earned Kuwait a place in the Guinness World Records — a first-of-its-kind digital humanitarian achievement.</div>
+        <div class="media-footer">
+          <span class="media-date">الخليج الكويتي · 2016</span>
+          <a href="http://web.archive.org/web/20180711043649/http://alkhaleej-kw.com/category/%d8%a5%d9%8a%d9%85%d8%a7%d9%86-%d8%a7%d9%84%d8%b4%d9%85%d8%b1%d9%8a-shame-on-you-%d8%aa%d8%a4%d9%87%d9%84-%d8%a7%d9%84%d9%83%d9%88%d9%8a%d8%aa-%d9%84%d8%af%d8%ae%d9%88%d9%84-%d8%ba%d9%8a/" target="_blank" class="read-link">Read Archive →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">2019</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name">الشرق</div>
+        <div class="media-outlet-sub">Qatar · 2019</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">كتارا · Katara · يناير 2019</div>
+        <div class="media-title">كتارا تقدم التاريخ بحلة عصرية نابضة بالحياة</div>
+        <div class="media-title-en">"Katara Presents History in a Vibrant Contemporary Style"</div>
+        <div class="media-desc">Coverage in Qatar's Al-Sharq newspaper of the History in Color exhibition at Katara Cultural Village, Doha — describing the innovative use of AI and art to bring historical moments to life.</div>
+        <div class="media-footer">
+          <span class="media-date">جريدة الشرق · قطر · يناير 2019</span>
+          <a href="https://web.archive.org/web/20191215204920/https://al-sharq.com/article/04/01/2019/%D9%83%D8%AA%D8%A7%D8%B1%D8%A7-%D8%AA%D9%82%D8%AF%D9%85-%D8%A7%D9%84%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE-%D8%A8%D8%AD%D9%84%D8%A9-%D8%B9%D8%B5%D8%B1%D9%8A%D8%A9-%D9%86%D8%A7%D8%A8%D8%B6%D8%A9-%D8%A8%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D8%A9" target="_blank" class="read-link">Read Archive →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">2021</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name" style="font-size:14px;">Middle East Online</div>
+        <div class="media-outlet-sub">2021</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Literary Publication · سبتمبر 2021</div>
+        <div class="media-title">الموسوعة الكويتية الشعرية في مدح خير البرية</div>
+        <div class="media-title-en">"The Kuwaiti Poetry Encyclopedia in Praise of the Best of Creation"</div>
+        <div class="media-desc">Coverage of Dr. Eiman's publication of the Kuwaiti Poetry Encyclopedia dedicated to prophetic praise poetry — a landmark scholarly contribution to Kuwaiti literary heritage.</div>
+        <div class="media-footer">
+          <span class="media-date">Middle East Online · 3 سبتمبر 2021</span>
+          <a href="https://web.archive.org/web/20210311214810/https://middle-east-online.com/%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%88%D8%B9%D8%A9-%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA%D9%8A%D8%A9-%D8%A7%D9%84%D8%B4%D8%B9%D8%B1%D9%8A%D8%A9-%D9%81%D9%8A-%D9%85%D8%AF%D8%AD-%D8%AE%D9%8A%D8%B1-%D8%A7%D9%84%D8%A8%D8%B1%D9%8A%D8%A9" target="_blank" class="read-link">Read Archive →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">2021</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name">الدستور</div>
+        <div class="media-outlet-sub">2021</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Literary Publication · 2021</div>
+        <div class="media-title">«الموسوعة الكويتية في مدح خير البرية».. كتاب جديد لإيمان الشمري</div>
+        <div class="media-title-en">"The Kuwaiti Encyclopedia in Praise of the Best of Creation — New Book by Eiman Al-Shammari"</div>
+        <div class="media-desc">Coverage in Al-Dostor newspaper of the new scholarly publication on prophetic praise poetry in Kuwaiti literature.</div>
+        <div class="media-footer">
+          <span class="media-date">جريدة الدستور · 2021</span>
+          <a href="https://web.archive.org/web/20210311214828/https://www.dostor.org/3383911" target="_blank" class="read-link">Read Archive →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">2021</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name">النهار</div>
+        <div class="media-outlet-sub">2021</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">Literary Publication · 2021</div>
+        <div class="media-title">الموسوعة الكويتية الشعرية في مدح خير البرية</div>
+        <div class="media-title-en">Al-Nahar Coverage — Kuwaiti Poetry Encyclopedia</div>
+        <div class="media-desc">Coverage in Al-Nahar of the Kuwaiti Poetry Encyclopedia on prophetic praise poetry.</div>
+        <div class="media-footer">
+          <span class="media-date">النهار · 2021</span>
+          <a href="https://web.archive.org/web/20210311215630/https://www.annaharar.com/arabic/culture/books-authors/09032021095556177" target="_blank" class="read-link">Read Archive →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-item reveal">
+      <div class="media-year-col"><div class="media-year">2020</div></div>
+      <div class="media-outlet-box">
+        <div class="media-outlet-name" style="font-size:13px;">اتحاد المترجمين</div>
+        <div class="media-outlet-sub">International · 2020</div>
+      </div>
+      <div class="media-body">
+        <div class="media-tag">International Union of Translation · 2020</div>
+        <div class="media-title">إيمان طعمة الشمري — الاتحاد الدولي للترجمة</div>
+        <div class="media-title-en">Profile — International Union of Translation</div>
+        <div class="media-desc">Official profile of Dr. Eiman Al-Shammari at the International Union of Translation — recognizing her as a member and contributor to Arabic language and translation studies.</div>
+        <div class="media-footer">
+          <span class="media-date">الاتحاد الدولي للترجمة · يناير 2020</span>
+          <a href="https://web.archive.org/web/20201219001216/https://alarabiahtranslation.org/%D8%A5%D9%8A%D9%85%D8%A7%D9%86-%D8%B7%D8%B9%D9%85%D8%A9-%D8%A7%D9%84%D8%B4%D9%85%D8%B1%D9%8A/" target="_blank" class="read-link">View Profile →</a>
         </div>
       </div>
     </div>
